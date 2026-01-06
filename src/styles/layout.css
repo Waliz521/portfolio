@@ -1887,6 +1887,109 @@
   background: rgba(255, 255, 255, 0.03);
 }
 
+.skills__column--circles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.skills__column--circles h3 {
+  margin-bottom: 2rem;
+}
+
+.skills__circles {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* Circular Progress Styles */
+.circular-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.circular-progress__wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-progress__svg {
+  transform: rotate(-90deg);
+}
+
+.circular-progress__bg {
+  stroke: rgba(255, 255, 255, 0.08);
+}
+
+.circular-progress__fill {
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.circular-progress__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.circular-progress__tech {
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+  pointer-events: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Adjust font size for larger circles */
+.circular-progress[data-size="200"] .circular-progress__tech {
+  font-size: clamp(0.75rem, 1vw, 1rem);
+}
+
+.circular-progress[data-size="180"] .circular-progress__tech {
+  font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+}
+
+.circular-progress__label {
+  font-size: 0.95rem;
+  color: var(--color-subtle);
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+  max-width: 180px;
+}
+
+@media (max-width: 720px) {
+  .skills__layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .skills__circles {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .circular-progress__label {
+    font-size: 0.85rem;
+    max-width: 180px;
+  }
+
+  .circular-progress__tech {
+    font-size: clamp(0.6rem, 2vw, 0.85rem) !important;
+  }
+}
+
 .cta {
   margin: 4rem auto 0;
   max-width: 960px;

@@ -9,7 +9,7 @@ export function AboutSection() {
         <div className="section__heading">
           <div className="section__eyebrow">About</div>
           <h2>
-            <AnimatedTitle text="Geospatial Developer & Analyst" />
+            <AnimatedTitle text="WebGIS developer and Geospatial Analyst" />
           </h2>
         </div>
         <div className="about__content">

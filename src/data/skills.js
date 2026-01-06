@@ -1,9 +1,10 @@
 export const skillCategories = [
   {
-    title: "GIS & Remote Sensing",
+    title: "Enterprise Web GIS",
     items: [
-      { label: "Google Earth Engine", value: "90%" },
-      { label: "R Studio", value: "70%" },
+      { label: "ASP.NET", value: "75%" },
+      { label: "C#", value: "75%" },
+      { label: "SQL Server", value: "70%" },
     ],
   },
   {
@@ -15,20 +16,26 @@ export const skillCategories = [
     ],
   },
   {
-    title: "Databases & Programming",
+    title: "GIS & Remote Sensing",
     items: [
-      { label: "Python GeoPandas", value: "65%" },
+      { label: "Google Earth Engine", value: "90%" },
       { label: "ArcGIS SDK for Python", value: "70%" },
-      { label: "PostgreSQL", value: "50%" },
+      { label: "Python GeoPandas", value: "65%" },
+    ],
+  },
+  {
+    title: "Databases & Spatial Data",
+    items: [
+      { label: "PostgreSQL / PostGIS", value: "65%" },
+      { label: "SQL Server", value: "70%" },
     ],
   },
 ];
 
 export const coreCompetencies = [
-  { label: "Geospatial Analysis & Mapping", value: "95%" },
-  { label: "WebGIS Development (Mapbox, Leaflet)", value: "85%" },
-  { label: "Database Management (PostGIS)", value: "60%" },
-  { label: "Python Programming", value: "50%" },
+  { label: "Geospatial Analysis", value: "95%" },
+  { label: "Web GIS Development", value: "85%" },
+  { label: "Database Management", value: "70%" },
 ];
 
 export const tools = [
@@ -36,12 +43,14 @@ export const tools = [
   "QGIS",
   "Mapbox GL JS",
   "Leaflet",
+  "Google Earth Engine",
   "GeoPandas",
   "GeoJSON",
-  "Python",
-  "JavaScript",
-  "Google Earth Engine",
   "PostgreSQL",
+  "SQL Server",
+  "R Studio",
+  "JavaScript",
+  "Python",
+  "C#",
+  "ASP.NET",
 ];
-
-
