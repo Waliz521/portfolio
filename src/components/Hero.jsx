@@ -1,10 +1,7 @@
-import { PlanetsShowcase } from "./PlanetsShowcase";
-
 export function Hero() {
   return (
     <section id="home" className="hero hero--minimal">
       <div className="hero__globe-container">
-        <PlanetsShowcase />
         <div className="hero__quote">
           <p className="hero__quote-text">
             GEOSPATIAL DATA IS NOT JUST INFORMATION,

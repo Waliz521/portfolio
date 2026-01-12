@@ -1,0 +1,54 @@
+/* Footer Styles */
+
+.footer {
+  margin-top: 6rem;
+  padding: 3rem 1.5rem 2rem;
+  background: rgba(15, 30, 15, 0.9);
+  border-top: 1px solid rgba(140, 200, 140, 0.2);
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+}
+
+.footer__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: var(--color-muted);
+}
+
+.footer__social {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+.footer__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(233, 241, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--color-subtle);
+  transition: all 0.25s ease;
+}
+
+.footer__social a:hover {
+  border-color: rgba(111, 255, 207, 0.4);
+  color: var(--color-highlight);
+}
+
+.footer__credits {
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}

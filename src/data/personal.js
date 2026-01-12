@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Zahak Wali Zahir",
-  title: "Geospatial Analyst & WebGIS Developer",
+  title: "Geospatial Analyst & WEBGIS Developer",
   location: "Lahore, Pakistan",
   availability: "Available for remote work",
   intro:
