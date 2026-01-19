@@ -72,7 +72,7 @@ export const testimonials = [
   {
     id: "uk-heatmap-creation",
     title: "Heat Map Creation from Data",
-    description: "Created a comprehensive United Kingdom Sales Value Heatmap from 1,500+ data points, processing UK postcodes, order quantities, and sales values to visualize weighted order value density across the United Kingdom. Delivered high-resolution static heat maps showing sales concentration patterns and a point location map for detailed analysis.",
+    description: "Created a UK Sales Value Heatmap from 1,500+ data points. Processed postcodes and sales values to visualize order value density across the United Kingdom.",
     rating: null,
     dateRange: "Jan 14, 2026 - Present",
     amount: "$20.00",
