@@ -252,8 +252,15 @@
 
 .testimonials__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2rem;
+  max-width: 100%;
+}
+
+@media (min-width: 900px) {
+  .testimonials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .testimonial-card {

@@ -60,9 +60,13 @@ export function Testimonials({
                 )}
                 <div className="testimonial-card__rating">
                   <div className="testimonial-card__stars">
-                    {renderStars(testimonial.rating)}
+                    {testimonial.rating ? renderStars(testimonial.rating) : renderStars(0)}
                   </div>
-                  <span className="testimonial-card__rating-value">{testimonial.rating}</span>
+                  {testimonial.rating ? (
+                    <span className="testimonial-card__rating-value">{testimonial.rating}</span>
+                  ) : (
+                    <span className="testimonial-card__rating-value" style={{ fontStyle: 'italic', opacity: 0.7 }}>Loading rating...</span>
+                  )}
                 </div>
               </div>
 

@@ -67,6 +67,37 @@ export const testimonials = [
     solutions: "Implemented a robust backend API using Node.js to handle data queries efficiently. Used Supabase for scalable database management with proper indexing for geospatial queries. Created an intuitive filtering system that allows users to filter by city, star rating, status, and phase simultaneously. Utilized Leaflet.js for smooth map interactions and MapTiler for high-quality map tiles.",
     results: "Successfully delivered a fully functional mapping application that allows clients to visualize and filter boutique hotel leads across Rome and surrounding areas. The application was deployed on Netlify for the client, providing an intuitive interface for exploring hotel data with advanced filtering capabilities.",
   },
+  {
+    id: "uk-heatmap-creation",
+    title: "Heat Map Creation from Data",
+    description: "Created a comprehensive United Kingdom Sales Value Heatmap from 1,500+ data points, processing UK postcodes, order quantities, and sales values to visualize weighted order value density across the United Kingdom. Delivered high-resolution static heat maps showing sales concentration patterns and a point location map for detailed analysis.",
+    rating: null,
+    dateRange: "Jan 14, 2026 - Present",
+    amount: "$20.00",
+    paymentType: "hourly",
+    hourlyRate: "$10.00 /hr",
+    totalHours: "2 hours",
+    testimonial: "", // Add client testimonial if available
+    platform: "Upwork",
+    clientName: "Rachel Greening",
+    clientLocation: "Weston Colville, United Kingdom",
+    // Detailed content for the project detail page
+    detailedDescription: "Created a comprehensive United Kingdom Sales Value Heatmap visualizing weighted order value density based on billing postcodes from 2023-2026. The project involved processing 1,500+ data points, cleaning duplicate entries, and creating high-resolution static heat maps showing sales concentration across the UK, Ireland, and parts of France. The visualization includes detailed annotations for major sales hubs including London & Greater London, Midlands (Birmingham area), North West England (Manchester-Liverpool area), and other key regions. Additionally, created a monthly sales revenue trend chart showing seasonal patterns and revenue growth over the analysis period. Delivered both a classified heat map (grouped by order value) and a point location map showing individual order locations.",
+    technologies: [
+      "ArcGIS Pro",
+      "GIS",
+      "Geospatial Data Processing",
+      "Postcode Geocoding",
+      "Heat Map Creation",
+      "Cartographic Design",
+      "Data Cleaning & Validation",
+      "Map Layout Design",
+      "Spatial Analysis"
+    ],
+    challenges: "The project required processing a large dataset of 1,500+ records, identifying and removing duplicate entries (199 duplicates found), geocoding UK postcodes, creating an accurate heat map visualization that properly represents weighted order value density, and designing a comprehensive map with proper annotations and legends that effectively communicates sales concentration patterns across the UK.",
+    solutions: "Processed and cleaned the dataset to remove duplicate entries where Order ID, Order Date, and Order Total matched exactly, resulting in 1,373 unique orders for analysis. Created a weighted heat map visualization using ArcGIS Pro to show sales concentration intensity across different regions. Designed a comprehensive map layout including a detailed legend, scale bar, annotations for key sales hubs, and an integrated monthly sales revenue trend chart. Used proper cartographic principles to ensure the heat map accurately represents the weighted order value density across the United Kingdom. Delivered high-resolution static maps (18 x 24 inches) that can be zoomed in for detailed analysis.",
+    results: "Successfully delivered a comprehensive United Kingdom Sales Value Heatmap that visualizes sales concentration across the UK, Ireland, and parts of France. The map clearly identifies major sales hubs including London & Greater London (primary sales hub), Midlands (Birmingham area), North West England (Manchester-Liverpool area), and other key regions. The visualization includes detailed annotations, a proper legend, and an integrated monthly sales revenue trend chart showing seasonal patterns from February 2023 to January 2026. Delivered both a classified heat map (Option 1 - clear groups) and a point location map showing individual order locations. The project effectively communicates sales distribution patterns and helps identify key market areas for business analysis and geo-targeting budget decisions.",
+  },
 ];
 
 // Helper function to get a testimonial by ID
