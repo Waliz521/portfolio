@@ -13,7 +13,7 @@ export function HomePage() {
         limit={2}
         showViewAll
         eyebrow="/ Highlights"
-        heading="Recent geospatial explorations"
+        heading="Featured geospatial projects"
       />
       <Testimonials
         eyebrow="/ Freelance Work"
@@ -21,6 +21,7 @@ export function HomePage() {
         category="freelance"
         limit={2}
         excludeIds={["uk-heatmap-creation"]}
+        showViewAll={true}
       />
       <CallToAction />
     </>

@@ -263,6 +263,12 @@
   }
 }
 
+.testimonials__cta {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+
 .testimonial-card {
   display: flex;
   flex-direction: column;

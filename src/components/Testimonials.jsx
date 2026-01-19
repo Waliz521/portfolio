@@ -159,6 +159,14 @@ export function Testimonials({
             </Link>
           ))}
         </div>
+
+        {showViewAll && (
+          <div className="testimonials__cta">
+            <Link className="btn btn--ghost" to="/projects">
+              {category === "client-work" ? "View all client work" : "View all freelance projects"}
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
