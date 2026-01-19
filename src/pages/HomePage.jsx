@@ -16,8 +16,11 @@ export function HomePage() {
         heading="Recent geospatial explorations"
       />
       <Testimonials
-        eyebrow="/ Client Work"
-        heading="Client work & testimonials"
+        eyebrow="/ Freelance Work"
+        heading="Freelance projects & testimonials"
+        category="freelance"
+        limit={2}
+        excludeIds={["uk-heatmap-creation"]}
       />
       <CallToAction />
     </>

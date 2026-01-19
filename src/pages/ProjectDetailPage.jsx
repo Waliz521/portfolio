@@ -1,14 +1,18 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { getTestimonialById, upworkProfileUrl } from "../data/testimonials";
+import { getProjectById } from "../data/projects";
 import { FaStar, FaArrowLeft } from "react-icons/fa";
 
 export function ProjectDetailPage() {
   const { id } = useParams();
-  const project = getTestimonialById(id);
+  // Try to find project in both testimonials (freelance) and projects (pet projects)
+  let project = getTestimonialById(id) || getProjectById(id);
 
   if (!project) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/projects" replace />;
   }
+
+  const isFreelanceProject = project.platform !== undefined;
 
   const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, i) => (
@@ -22,23 +26,35 @@ export function ProjectDetailPage() {
   return (
     <div className="project-detail">
       <div className="site-wrapper">
-        <Link to="/" className="project-detail__back">
+        <Link to="/projects" className="project-detail__back">
           <FaArrowLeft />
-          <span>Back to Home</span>
+          <span>Back to Projects</span>
         </Link>
 
         <article className="project-detail__content glass-panel">
+          {project.image && (
+            <div className="project-detail__image">
+              <img src={project.image} alt={project.title} loading="lazy" />
+            </div>
+          )}
           <div className="project-detail__header">
             <div className="project-detail__title-row">
               <h1>{project.title}</h1>
-              <a
-                href={upworkProfileUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-detail__platform"
-              >
-                {project.platform}
-              </a>
+              {isFreelanceProject && project.platform && (
+                <a
+                  href={upworkProfileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-detail__platform"
+                >
+                  {project.platform}
+                </a>
+              )}
+              {!isFreelanceProject && (
+                <span className="project-detail__platform project-detail__platform--pet">
+                  Pet Project
+                </span>
+              )}
             </div>
 
             {project.clientName && (
@@ -51,46 +67,95 @@ export function ProjectDetailPage() {
               </div>
             )}
             
-            <div className="project-detail__rating">
-              <div className="project-detail__stars">
-                {renderStars(project.rating)}
-              </div>
-              <span className="project-detail__rating-value">{project.rating}</span>
-            </div>
-
-            <div className="project-detail__meta">
-              <div className="project-detail__meta-item">
-                <span className="project-detail__meta-label">Project Period</span>
-                <span className="project-detail__meta-value">{project.dateRange}</span>
-              </div>
-              <div className="project-detail__meta-item">
-                <span className="project-detail__meta-label">Total Amount</span>
-                <span className="project-detail__meta-value project-detail__meta-value--highlight">
-                  {project.amount}
-                </span>
-              </div>
-              {project.paymentType === "hourly" && (
-                <>
-                  <div className="project-detail__meta-item">
-                    <span className="project-detail__meta-label">Hourly Rate</span>
-                    <span className="project-detail__meta-value">{project.hourlyRate}</span>
-                  </div>
-                  <div className="project-detail__meta-item">
-                    <span className="project-detail__meta-label">Total Hours</span>
-                    <span className="project-detail__meta-value">{project.totalHours}</span>
-                  </div>
-                </>
-              )}
-              {project.paymentType === "fixed" && (
-                <div className="project-detail__meta-item">
-                  <span className="project-detail__meta-label">Payment Type</span>
-                  <span className="project-detail__meta-value">Fixed Price</span>
+            {project.rating && (
+              <div className="project-detail__rating">
+                <div className="project-detail__stars">
+                  {renderStars(project.rating)}
                 </div>
-              )}
-            </div>
+                <span className="project-detail__rating-value">{project.rating}</span>
+              </div>
+            )}
+
+            {isFreelanceProject && (
+              <div className="project-detail__meta">
+                {project.dateRange && (
+                  <div className="project-detail__meta-item">
+                    <span className="project-detail__meta-label">Project Period</span>
+                    <span className="project-detail__meta-value">{project.dateRange}</span>
+                  </div>
+                )}
+                {project.amount && (
+                  <div className="project-detail__meta-item">
+                    <span className="project-detail__meta-label">Total Amount</span>
+                    <span className="project-detail__meta-value project-detail__meta-value--highlight">
+                      {project.amount}
+                    </span>
+                  </div>
+                )}
+                {project.paymentType === "hourly" && (
+                  <>
+                    {project.hourlyRate && (
+                      <div className="project-detail__meta-item">
+                        <span className="project-detail__meta-label">Hourly Rate</span>
+                        <span className="project-detail__meta-value">{project.hourlyRate}</span>
+                      </div>
+                    )}
+                    {project.totalHours && (
+                      <div className="project-detail__meta-item">
+                        <span className="project-detail__meta-label">Total Hours</span>
+                        <span className="project-detail__meta-value">{project.totalHours}</span>
+                      </div>
+                    )}
+                  </>
+                )}
+                {project.paymentType === "fixed" && (
+                  <div className="project-detail__meta-item">
+                    <span className="project-detail__meta-label">Payment Type</span>
+                    <span className="project-detail__meta-value">Fixed Price</span>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {!isFreelanceProject && project.category === "client-work" && (
+              <div className="project-detail__meta">
+                {project.dateRange && (
+                  <div className="project-detail__meta-item">
+                    <span className="project-detail__meta-label">Project Period</span>
+                    <span className="project-detail__meta-value">{project.dateRange}</span>
+                  </div>
+                )}
+                <div className="project-detail__meta-item">
+                  <span className="project-detail__meta-label">Project Type</span>
+                  <span className="project-detail__meta-value">Client Work (Oil Spill Mapping & GIS Data Collection - Sudan & South Sudan)</span>
+                </div>
+                {project.clientName && (
+                  <div className="project-detail__meta-item">
+                    <span className="project-detail__meta-label">Client</span>
+                    <span className="project-detail__meta-value">{project.clientName}</span>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {!isFreelanceProject && project.links && project.links.length > 0 && (
+              <div className="project-detail__links">
+                {project.links.map((link) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-detail__link project-detail__link--primary"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
 
-          {project.testimonial && (
+          {isFreelanceProject && project.testimonial && (
             <div className="project-detail__testimonial">
               <h3>Client Feedback</h3>
               <div className="project-detail__quote-box">
