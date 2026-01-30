@@ -1,0 +1,24 @@
+/**
+ * Dark theme (default)
+ * Variables and base styles for the default dark/green theme.
+ * Applied when data-theme is unset or "dark".
+ */
+
+:root {
+  color-scheme: dark;
+  --color-background: #0f1f0f;
+  --color-surface: rgba(35, 60, 35, 0.8);
+  --color-surface-alt: rgba(30, 55, 30, 0.9);
+  --color-border: rgba(140, 200, 140, 0.25);
+  --color-highlight: #a8e8a8;
+  --color-primary: #7fc87f;
+  --color-text: #f0f8f0;
+  --color-subtle: rgba(240, 248, 240, 0.75);
+  --color-muted: rgba(240, 248, 240, 0.5);
+  --shadow-soft: 0 24px 40px -24px rgba(60, 120, 60, 0.35);
+  --shadow-card: 0 16px 32px -20px rgba(0, 0, 0, 0.75);
+  --header-height: 72px;
+  font-family: "Dune Rise", system-ui, -apple-system, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}

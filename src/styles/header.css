@@ -1,149 +1,491 @@
-/* Header and Navigation Styles */
+/* Header and Navigation Styles – floating pill with centered content */
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 10;
-  backdrop-filter: blur(10px);
-  background: var(--color-background);
-  border-bottom: 1px solid var(--color-border);
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0.75rem 1rem 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+  max-width: 100vw;
 }
 
-.site-header--gradient {
-  background: var(--color-background);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--color-border);
+.site-header > * {
+  pointer-events: auto;
 }
 
+/* Floating pill container - centered on page */
+.site-header__pill {
+  position: relative;
+  width: 100%;
+  max-width: 95vw;
+  min-height: 3.5rem;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: background-color 0.3s ease, border 0.3s ease, border-radius 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease, opacity 0.3s ease;
+  overflow: visible;
+}
+
+.site-header__pill--scrolled {
+  border-radius: 9999px;
+  background-color: var(--color-background) !important;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0.95;
+}
+
+@media (min-width: 640px) {
+  .site-header__pill {
+    max-width: 92vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .site-header__pill {
+    max-width: 92vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-header__pill {
+    max-width: min(92vw, 80rem);
+  }
+}
+
+/* Nav container - flexbox with centered content */
 .nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: var(--header-height);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: transparent;
 }
 
-.nav--maxmilkin {
+.nav--pill {
   max-width: 100%;
-  padding: 0 3rem;
 }
 
+/* Brand/Logo */
 .nav__brand {
   font-weight: 700;
   font-size: 1.1rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  overflow: visible;
 }
 
-.nav__brand--maxmilkin {
+.nav__brand--pill {
   font-weight: 700;
   font-size: 1.2rem;
   letter-spacing: 0.15em;
   color: var(--color-text);
   text-decoration: none;
+  transition: opacity 0.2s ease;
+  display: inline-block;
+  line-height: 1.2;
+  position: relative;
+  z-index: 2;
 }
 
-.nav__links {
+.nav__brand--pill:hover {
+  opacity: 0.85;
+}
+
+/* At top (transparent bar): contrast against page background */
+.site-header__pill:not(.site-header__pill--scrolled) .nav__brand--pill {
+  color: var(--color-text);
+}
+
+/* Navigation Links - Pill style */
+.nav-pill {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-}
-
-.nav__links ul {
-  display: flex;
-  gap: 1.25rem;
+  gap: 0.5rem;
   list-style: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
-.nav__links--maxmilkin ul {
-  display: flex;
-  gap: 6rem;
-  list-style: none;
-}
-
-.nav__link {
-  color: var(--color-subtle);
+.nav-pill__link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
   font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.nav__link--maxmilkin {
-  color: var(--color-text);
-  font-weight: 400;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  color: var(--color-subtle);
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+  white-space: nowrap;
 }
 
-.nav__link--maxmilkin:hover {
-  opacity: 0.7;
+.nav-pill__link:hover {
+  color: var(--color-text);
 }
 
-.nav__link--maxmilkin.nav__link--active {
-  opacity: 0.7;
+/* At top (transparent bar): contrast against page background */
+.site-header__pill:not(.site-header__pill--scrolled) .nav-pill__link {
+  color: var(--color-subtle);
 }
 
-.nav__link:hover {
+.site-header__pill:not(.site-header__pill--scrolled) .nav-pill__link:hover {
+  color: var(--color-text);
+}
+
+/* Selected state: primary-tinted pill */
+.nav-pill__link--selected {
+  background: rgba(127, 200, 127, 0.25);
+  color: var(--color-highlight);
+  border: 1px solid rgba(127, 200, 127, 0.35);
+}
+
+.nav-pill__link--selected:hover {
+  background: rgba(127, 200, 127, 0.35);
   color: var(--color-highlight);
 }
 
-.nav__link--active {
+.site-header__pill:not(.site-header__pill--scrolled) .nav-pill__link--selected {
+  background: rgba(255, 255, 255, 0.12);
   color: var(--color-highlight);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* CTA state (e.g. Contact): primary pill */
+.nav-pill__link--cta {
+  background: var(--color-primary);
+  color: #0a180a;
+}
+
+.nav-pill__link--cta:hover {
+  background: var(--color-highlight);
+  color: #0a180a;
+}
+
+.site-header__pill:not(.site-header__pill--scrolled) .nav-pill__link--cta {
+  background: var(--color-primary);
+  color: #0a180a;
+}
+
+/* Nav actions: search, theme toggle, resume */
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.nav__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.nav__icon-btn:hover {
+  background: var(--color-surface);
+  color: var(--color-primary);
+  border-color: var(--color-border);
+}
+
+.nav__icon-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* At top (transparent bar): contrast against page background */
+.site-header__pill:not(.site-header__pill--scrolled) .nav__icon-btn {
+  color: var(--color-text);
+}
+
+/* Resume link */
 .nav__resume {
-  padding: 0.55rem 1.25rem;
-  border-radius: 999px;
-  border: 1px solid rgba(111, 255, 207, 0.3);
-  background: rgba(111, 255, 207, 0.08);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  background: rgba(127, 200, 127, 0.1);
+  color: var(--color-primary);
+  font-size: 0.875rem;
   font-weight: 600;
-  transition: all 0.2s ease;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
 }
 
 .nav__resume:hover {
-  background: rgba(111, 255, 207, 0.18);
-  border-color: rgba(111, 255, 207, 0.6);
+  background: rgba(127, 200, 127, 0.2);
+  border-color: var(--color-primary);
   color: var(--color-highlight);
 }
 
+/* At top (transparent bar): contrast against page background */
+.site-header__pill:not(.site-header__pill--scrolled) .nav__resume {
+  color: var(--color-text);
+}
+
+/* When pill floats (scrolled): Resume blends into pill */
+.site-header__pill--scrolled .nav__resume {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.site-header__pill--scrolled .nav__resume:hover {
+  background: var(--color-surface);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Mobile menu toggle – hidden on desktop, shown on mobile */
 .nav__toggle {
   display: none;
   color: var(--color-text);
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Show toggle on mobile */
+@media (max-width: 960px) {
+  .nav__toggle {
+    display: inline-flex !important;
+  }
+}
+
+/* Mobile-only dropdown – hidden on desktop so nav links don’t duplicate */
+.nav__links {
+  display: none;
 }
 
 /* Mobile Navigation */
 @media (max-width: 960px) {
+  .site-header {
+    padding: 0.5rem 1rem 0;
+    overflow: visible;
+  }
+
+  .site-header__pill {
+    max-width: calc(100vw - 2rem);
+    padding: 0.75rem 1rem;
+    min-height: auto;
+    overflow: visible;
+    position: relative;
+  }
+
+  .site-header__pill--scrolled {
+    padding: 0.75rem 1rem;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+    flex-wrap: nowrap;
+    position: relative;
+    overflow: visible;
+  }
+
+  /* Hide desktop nav links */
+  .nav-pill:not(.nav-pill--mobile) {
+    display: none;
+  }
+
+  /* Brand name - left side, smaller on mobile */
+  .nav__brand {
+    order: 1;
+    text-align: left;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    flex: 0 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+    z-index: 2;
+    max-width: calc(100% - 8rem);
+  }
+
+  .nav__brand--pill {
+    font-size: 0.85rem;
+    line-height: 1.2;
+  }
+
+  /* Actions container - right side */
+  .nav__actions {
+    order: 3;
+    display: flex !important;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  /* Toggle button - right side, before actions */
+  .nav__toggle {
+    order: 2;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    flex-shrink: 0;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--color-text) !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    position: relative !important;
+    z-index: 2 !important;
+    margin-left: auto;
+  }
+
+  /* Ensure all buttons are visible */
+  .nav__icon-btn {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .nav__resume {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .nav__actions .nav__icon-btn {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .nav__actions .nav__resume {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  /* Mobile menu dropdown – show and position */
   .nav__links {
+    display: flex;
     position: absolute;
-    top: var(--header-height);
-    right: 0;
-    left: 0;
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(-120%);
+    width: 100%;
+    max-width: calc(100vw - 2rem);
     padding: 1.5rem;
-    background: rgba(3, 9, 18, 0.96);
-    flex-direction: column;
-    transform: translateY(-120%);
+    background: var(--color-background);
+    backdrop-filter: blur(12px);
+    border-radius: 1rem;
     opacity: 0;
     pointer-events: none;
     transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-
-  .nav__links ul {
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    overflow: visible;
   }
 
   .nav__links--open {
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
     opacity: 1;
     pointer-events: auto;
   }
 
+  .nav__links--pill {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-pill--mobile {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .nav-pill--mobile .nav-pill__link {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .site-header__pill {
+    max-width: calc(100vw - 1rem);
+    padding: 0.65rem 0.75rem;
+  }
+
+  .nav__brand {
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    max-width: calc(100% - 7rem);
+  }
+
+  .nav__actions .nav__resume {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .nav__actions .nav__icon-btn {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
+
   .nav__toggle {
-    display: inline-flex;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.35rem;
+  }
+
+  .nav__links {
+    max-width: calc(100vw - 1rem);
   }
 }

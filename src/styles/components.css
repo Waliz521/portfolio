@@ -73,149 +73,242 @@
   font-weight: 600;
 }
 
-/* Skills Section */
+/* Skills Section - Dune Theme */
 .skills {
   padding-top: 6rem;
+  position: relative;
 }
 
-.skills__layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2.5rem;
-}
-
-.skills__list,
-.skills__groups ul {
-  list-style: none;
+.skills__dune-layout {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 3rem;
 }
 
-.skills__info {
-  display: flex;
-  justify-content: space-between;
-  color: var(--color-subtle);
-  font-weight: 500;
-  font-size: 0.95rem;
-}
-
-.skills__bar {
+/* Dune Card Base */
+.skills__dune {
   position: relative;
-  height: 8px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  padding: 2.5rem;
+  border-radius: 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
   overflow: hidden;
-  margin-top: 0.55rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.skills__bar span {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(90deg, rgba(61, 214, 255, 0.9), rgba(111, 255, 207, 0.8));
+.skills__dune:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
 }
 
-.skills__chips {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  color: var(--color-muted);
-}
-
-.skills__chips li {
-  padding: 0.45rem 0.85rem;
-  border-radius: 999px;
-  border: 1px solid rgba(233, 241, 255, 0.12);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.skills__column--circles {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.skills__column--circles h3 {
-  margin-bottom: 2rem;
-}
-
-.skills__circles {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  align-items: center;
-}
-
-/* Circular Progress Styles */
-.circular-progress {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.circular-progress__wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.circular-progress__svg {
-  transform: rotate(-90deg);
-}
-
-.circular-progress__bg {
-  stroke: rgba(255, 255, 255, 0.08);
-}
-
-.circular-progress__fill {
-  transition: stroke-dashoffset 1s ease-in-out;
-}
-
-.circular-progress__content {
+.skills__dune::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    var(--color-highlight) 20%,
+    var(--color-primary) 50%,
+    var(--color-highlight) 80%,
+    transparent 100%
+  );
+  opacity: 0.6;
+}
+
+/* Dune Wave Pattern */
+.skills__dune-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.05));
+  clip-path: polygon(
+    0% 100%,
+    5% 95%,
+    10% 98%,
+    15% 92%,
+    20% 96%,
+    25% 90%,
+    30% 94%,
+    35% 88%,
+    40% 92%,
+    45% 86%,
+    50% 90%,
+    55% 84%,
+    60% 88%,
+    65% 82%,
+    70% 86%,
+    75% 80%,
+    80% 84%,
+    85% 78%,
+    90% 82%,
+    95% 76%,
+    100% 80%,
+    100% 100%
+  );
+  opacity: 0.3;
   pointer-events: none;
 }
 
-.circular-progress__tech {
+.skills__dune-header {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.skills__dune-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.skills__dune-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.skills__dune-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  opacity: 0;
+  animation: duneFadeIn 0.6s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes duneFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skills__dune-label {
+  font-size: 1rem;
   font-weight: 600;
   color: var(--color-text);
-  white-space: nowrap;
-  pointer-events: none;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Adjust font size for larger circles */
-.circular-progress[data-size="200"] .circular-progress__tech {
-  font-size: clamp(0.75rem, 1vw, 1rem);
+.skills__dune-bar {
+  position: relative;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.circular-progress[data-size="180"] .circular-progress__tech {
-  font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+.skills__dune-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, 
+    var(--color-highlight) 0%,
+    var(--color-primary) 50%,
+    var(--color-highlight) 100%
+  );
+  box-shadow: 0 0 12px rgba(254, 220, 76, 0.4);
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: duneFill 1.2s ease forwards;
 }
 
-.circular-progress__label {
-  font-size: 0.95rem;
-  color: var(--color-subtle);
+@keyframes duneFill {
+  from {
+    width: 0;
+  }
+}
+
+/* Dune Groups */
+.skills__dune-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.skills__dune--primary {
+  background: linear-gradient(135deg, 
+    var(--color-surface) 0%,
+    var(--color-surface-alt) 100%
+  );
+}
+
+.skills__dune--secondary {
+  background: var(--color-surface);
+}
+
+/* Tools Section */
+.skills__dune--tools {
+  background: linear-gradient(135deg, 
+    var(--color-surface-alt) 0%,
+    var(--color-surface) 100%
+  );
+}
+
+.skills__dune-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.skills__dune-chip {
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--color-text);
+  font-size: 0.9rem;
   font-weight: 500;
-  margin: 0;
-  text-align: center;
-  max-width: 180px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: duneChipAppear 0.5s ease forwards;
+  animation-delay: var(--delay, 0s);
+  backdrop-filter: blur(10px);
+}
+
+@keyframes duneChipAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.skills__dune-chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-highlight);
+  background: rgba(254, 220, 76, 0.1);
+  box-shadow: 0 4px 12px rgba(254, 220, 76, 0.2);
+  color: var(--color-highlight);
 }
 
 /* CTA Section */
 .cta {
   margin: 4rem auto 0;
   max-width: 960px;
-  padding: 3.5rem;
+  padding: 2.5rem;
   border-radius: 32px;
   background: linear-gradient(135deg, rgba(61, 214, 255, 0.18), rgba(111, 255, 207, 0.14));
   border: 1px solid rgba(111, 255, 207, 0.25);
@@ -227,16 +320,21 @@
   flex-direction: column;
   gap: 1.5rem;
   align-items: flex-start;
+  width: 100%;
 }
 
 .cta h2 {
   font-size: clamp(2.1rem, 3vw, 2.8rem);
+  width: 100%;
 }
 
 .cta p {
   color: var(--color-subtle);
-  max-width: 620px;
-  font-size: 1.05rem;
+  max-width: 100%;
+  width: 100%;
+  font-size: 0.95rem;
+  text-align: justify;
+  line-height: 1.7;
 }
 
 .cta__actions {
@@ -555,25 +653,26 @@
 
 /* Mobile Responsive */
 @media (max-width: 720px) {
-  .skills__layout {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .skills__circles {
-    flex-direction: row;
-    justify-content: center;
+  .skills__dune-layout {
     gap: 2rem;
-    flex-wrap: wrap;
   }
 
-  .circular-progress__label {
+  .skills__dune {
+    padding: 2rem 1.5rem;
+  }
+
+  .skills__dune-title {
+    font-size: 1.25rem;
+  }
+
+  .skills__dune-group {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .skills__dune-chip {
     font-size: 0.85rem;
-    max-width: 180px;
-  }
-
-  .circular-progress__tech {
-    font-size: clamp(0.6rem, 2vw, 0.85rem) !important;
+    padding: 0.5rem 1rem;
   }
 
   .cta {

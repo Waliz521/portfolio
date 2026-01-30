@@ -1,17 +1,11 @@
 import { coreCompetencies, skillCategories, tools } from "../data/skills";
-import { CircularProgress } from "./CircularProgress";
 
 export function Skills() {
-  // Get technology names for core competencies
-  const coreTechs = coreCompetencies.map(comp => comp.label);
-  
-  // Find Enterprise Web GIS stack and get technology names
+  // Find Enterprise Web GIS stack
   const enterpriseStack = skillCategories.find(cat => cat.title === "Enterprise Web GIS");
-  const enterpriseTechs = enterpriseStack ? enterpriseStack.items.map(item => item.label) : [];
   
-  // Find Web GIS Development stack and get technology names
+  // Find Web GIS Development stack
   const webGISStack = skillCategories.find(cat => cat.title === "Web GIS Development");
-  const webGISTechs = webGISStack ? webGISStack.items.map(item => item.label) : [];
 
   return (
     <section id="skills" className="section skills">
@@ -21,39 +15,92 @@ export function Skills() {
           <h2>Tools & capabilities</h2>
         </div>
 
-        <div className="skills__layout">
-          <div className="skills__column skills__column--circles">
-            <h3>Core competencies</h3>
-            <CircularProgress 
-              technologies={coreTechs}
-              label="Core Expertise"
-              size={230}
-            />
-          </div>
-
-          <div className="skills__column skills__column--circles">
-            <h3>Specialist stacks</h3>
-            <div className="skills__circles">
-              <CircularProgress 
-                technologies={enterpriseTechs}
-                label={enterpriseStack?.title || "Enterprise Web GIS"}
-                size={180}
-              />
-              <CircularProgress 
-                technologies={webGISTechs}
-                label={webGISStack?.title || "Web GIS Development"}
-                size={180}
-              />
+        <div className="skills__dune-layout">
+          {/* Core Competencies - Large flowing dune */}
+          <div className="skills__dune skills__dune--primary">
+            <div className="skills__dune-header">
+              <h3 className="skills__dune-title">Core Competencies</h3>
+              <div className="skills__dune-wave"></div>
+            </div>
+            <div className="skills__dune-content">
+              {coreCompetencies.map((comp, index) => (
+                <div key={comp.label} className="skills__dune-item" style={{ '--delay': `${index * 0.1}s` }}>
+                  <span className="skills__dune-label">{comp.label}</span>
+                  <div className="skills__dune-bar">
+                    <div 
+                      className="skills__dune-fill" 
+                      style={{ width: comp.value }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="skills__column">
-            <h3>Tools & technologies</h3>
-            <ul className="skills__chips">
-              {tools.map((tool) => (
-                <li key={tool}>{tool}</li>
+          {/* Specialist Stacks - Two smaller dunes */}
+          <div className="skills__dune-group">
+            {enterpriseStack && (
+              <div className="skills__dune skills__dune--secondary">
+                <div className="skills__dune-header">
+                  <h3 className="skills__dune-title">{enterpriseStack.title}</h3>
+                  <div className="skills__dune-wave"></div>
+                </div>
+                <div className="skills__dune-content">
+                  {enterpriseStack.items.map((item, index) => (
+                    <div key={item.label} className="skills__dune-item" style={{ '--delay': `${index * 0.1}s` }}>
+                      <span className="skills__dune-label">{item.label}</span>
+                      <div className="skills__dune-bar">
+                        <div 
+                          className="skills__dune-fill" 
+                          style={{ width: item.value }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {webGISStack && (
+              <div className="skills__dune skills__dune--secondary">
+                <div className="skills__dune-header">
+                  <h3 className="skills__dune-title">{webGISStack.title}</h3>
+                  <div className="skills__dune-wave"></div>
+                </div>
+                <div className="skills__dune-content">
+                  {webGISStack.items.map((item, index) => (
+                    <div key={item.label} className="skills__dune-item" style={{ '--delay': `${index * 0.1}s` }}>
+                      <span className="skills__dune-label">{item.label}</span>
+                      <div className="skills__dune-bar">
+                        <div 
+                          className="skills__dune-fill" 
+                          style={{ width: item.value }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Tools & Technologies - Flowing sand chips */}
+          <div className="skills__dune skills__dune--tools">
+            <div className="skills__dune-header">
+              <h3 className="skills__dune-title">Tools & Technologies</h3>
+              <div className="skills__dune-wave"></div>
+            </div>
+            <div className="skills__dune-chips">
+              {tools.map((tool, index) => (
+                <span 
+                  key={tool} 
+                  className="skills__dune-chip"
+                  style={{ '--delay': `${index * 0.05}s` }}
+                >
+                  {tool}
+                </span>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>

@@ -84,6 +84,7 @@ export const testimonials = [
     clientName: "Rachel Greening",
     clientLocation: "Weston Colville, United Kingdom",
     category: "freelance",
+    image: "/images/Heatmap.png",
     // Detailed content for the project detail page
     detailedDescription: "Created a comprehensive United Kingdom Sales Value Heatmap visualizing weighted order value density based on billing postcodes from 2023-2026. The project involved processing 1,500+ data points, cleaning duplicate entries, and creating high-resolution static heat maps showing sales concentration across the UK, Ireland, and parts of France. The visualization includes detailed annotations for major sales hubs including London & Greater London, Midlands (Birmingham area), North West England (Manchester-Liverpool area), and other key regions. Additionally, created a monthly sales revenue trend chart showing seasonal patterns and revenue growth over the analysis period. Delivered both a classified heat map (grouped by order value) and a point location map showing individual order locations.",
     technologies: [

@@ -30,12 +30,12 @@ export function Projects({
 
         <div className="projects__grid">
           {projectList.map((project) => (
-            <Link
-              key={project.id || project.title}
-              to={`/project/${project.id}`}
-              className="project-card-link"
-            >
-              <article className="project-card">
+            <article key={project.id || project.title} className="project-card">
+              <Link
+                to={`/project/${project.id}`}
+                className="project-card-link"
+                aria-label={`View ${project.title} details`}
+              >
                 <div className="project-card__image">
                   <img src={project.image} alt={project.title} loading="lazy" />
                 </div>
@@ -47,22 +47,21 @@ export function Projects({
                       <li key={tag}>{tag}</li>
                     ))}
                   </ul>
-                  <div className="project-card__links">
-                    {project.links.map((link) => (
-                      <a
-                        key={link.url}
-                        href={link.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        {link.label}
-                      </a>
-                    ))}
-                  </div>
                 </div>
-              </article>
-            </Link>
+              </Link>
+              <div className="project-card__links">
+                {project.links.map((link) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
 

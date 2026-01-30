@@ -1,6 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://db.onlinewebfonts.com/c/bca5da28daa9ee1c2ca8bc9f8b15ee28?family=Dune+Rise");
 @import "./styles/base.css";
+@import "./styles/themes/dark.css";
 @import "./styles/header.css";
+@import "./styles/themes/dune.css";
 @import "./styles/hero.css";
 @import "./styles/about.css";
 @import "./styles/components.css";
