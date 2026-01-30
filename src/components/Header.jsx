@@ -4,25 +4,14 @@ import { FiMenu, FiX, FiSun } from "react-icons/fi";
 import { navigationLinks } from "../data/navigation";
 import { personalInfo } from "../data/personal";
 
-/** Twin moons of Arrakis – shown when Dune theme is active (click to switch to dark). */
-function DuneTwinMoonsIcon({ size = 18 }) {
+/** Earth icon – shown when Dune theme is active (click to switch to dark). */
+function EarthIcon({ size = 18 }) {
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.25"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <circle cx="8.5" cy="12" r="3.8" fill="currentColor" fillOpacity="0.15" />
-      <circle cx="8.5" cy="12" r="3.8" />
-      <circle cx="16" cy="12" r="3.2" fill="currentColor" fillOpacity="0.12" />
-      <circle cx="16" cy="12" r="3.2" />
-    </svg>
+    <img 
+      src="/images/earth.png" 
+      alt="Earth icon" 
+      style={{ width: `${size}px`, height: `${size}px`, objectFit: 'contain' }}
+    />
   );
 }
 
@@ -45,6 +34,19 @@ export function Header() {
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem(THEME_KEY, theme);
+    
+    // Update favicon based on theme
+    const faviconLink = document.getElementById("favicon");
+    const appleTouchIcon = document.getElementById("apple-touch-icon");
+    
+    if (faviconLink && appleTouchIcon) {
+      const faviconPath = theme === "dune" 
+        ? "/images/travel.png"  // Dune theme favicon
+        : "/images/globe_12273551.png";  // Dark theme favicon
+      
+      faviconLink.setAttribute("href", faviconPath);
+      appleTouchIcon.setAttribute("href", faviconPath);
+    }
   }, [theme]);
 
   useEffect(() => {
@@ -113,7 +115,15 @@ export function Header() {
               onClick={toggleTheme}
               aria-label={theme === "dark" ? "Switch to Dune palette theme" : "Switch to dark theme"}
             >
-              {theme === "dark" ? <FiSun size={18} /> : <DuneTwinMoonsIcon size={18} />}
+              {theme === "dark" ? (
+                <img 
+                  src="/images/fremen.png" 
+                  alt="Fremen icon" 
+                  style={{ width: '18px', height: '18px', objectFit: 'contain' }}
+                />
+              ) : (
+                <EarthIcon size={18} />
+              )}
             </button>
             <a
               href={resumeUrl}

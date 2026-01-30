@@ -25,13 +25,13 @@
 .site-header__pill {
   position: relative;
   width: 100%;
-  max-width: 95vw;
+  max-width: 88vw;
   min-height: 3.5rem;
   height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1.25rem;
   border-radius: 0;
   background-color: transparent !important;
   background-image: none !important;
@@ -56,19 +56,19 @@
 
 @media (min-width: 640px) {
   .site-header__pill {
-    max-width: 92vw;
+    max-width: 86vw;
   }
 }
 
 @media (min-width: 768px) {
   .site-header__pill {
-    max-width: 92vw;
+    max-width: 86vw;
   }
 }
 
 @media (min-width: 1024px) {
   .site-header__pill {
-    max-width: min(92vw, 80rem);
+    max-width: min(86vw, 72rem);
   }
 }
 
@@ -141,7 +141,7 @@
   padding: 0.5rem 1rem;
   border-radius: 9999px;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--color-subtle);
   text-decoration: none;
   transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
@@ -241,7 +241,7 @@
   background: rgba(127, 200, 127, 0.1);
   color: var(--color-primary);
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   white-space: nowrap;
@@ -302,8 +302,8 @@
   }
 
   .site-header__pill {
-    max-width: calc(100vw - 2rem);
-    padding: 0.75rem 1rem;
+    max-width: calc(100vw - 2.5rem);
+    padding: 0.75rem 0.9rem;
     min-height: auto;
     overflow: visible;
     position: relative;
@@ -459,8 +459,8 @@
 /* Extra small mobile devices */
 @media (max-width: 480px) {
   .site-header__pill {
-    max-width: calc(100vw - 1rem);
-    padding: 0.65rem 0.75rem;
+    max-width: calc(100vw - 1.5rem);
+    padding: 0.65rem 0.7rem;
   }
 
   .nav__brand {
