@@ -20,7 +20,6 @@ export function HomePage() {
         heading="Freelance projects & testimonials"
         category="freelance"
         limit={2}
-        excludeIds={["uk-heatmap-creation"]}
         showViewAll={true}
       />
       <CallToAction />

@@ -342,6 +342,14 @@
 }
 
 /* Projects – Dune overrides: Dark brown/bronze cards with orange/gold accents */
+[data-theme="dune"] .projects-page__filter-btn--active {
+  box-shadow: 0 8px 16px -8px rgba(172, 44, 5, 0.5);
+}
+
+[data-theme="dune"] .projects-page__filter-btn--active:hover {
+  box-shadow: 0 12px 24px -10px rgba(172, 44, 5, 0.65);
+}
+
 [data-theme="dune"] .project-card {
   background: #2d1812;
   border-color: rgba(172, 44, 5, 0.3);
@@ -465,9 +473,129 @@
   color: var(--dune-11);
 }
 
-/* Project Detail – Dune overrides: Quote text color */
+/* Project Detail – Dune overrides: Readable text on dark panel (pet projects & client work) */
+[data-theme="dune"] .project-detail__back {
+  color: var(--dune-11);
+}
+
+[data-theme="dune"] .project-detail__back:hover {
+  color: var(--dune-orange);
+}
+
+[data-theme="dune"] .project-detail__title-row h1 {
+  color: var(--dune-orange);
+}
+
+[data-theme="dune"] .project-detail__platform {
+  color: var(--dune-11);
+  background: rgba(251, 159, 37, 0.15);
+  border-color: rgba(251, 159, 37, 0.35);
+}
+
+[data-theme="dune"] .project-detail__platform:hover {
+  color: var(--dune-12);
+  background: rgba(251, 159, 37, 0.25);
+  border-color: rgba(251, 159, 37, 0.5);
+}
+
+[data-theme="dune"] .project-detail__platform--pet {
+  color: var(--dune-11);
+  background: rgba(254, 220, 76, 0.15);
+  border-color: rgba(254, 220, 76, 0.35);
+}
+
+[data-theme="dune"] .project-detail__platform--pet:hover {
+  color: var(--dune-12);
+  background: rgba(254, 220, 76, 0.25);
+  border-color: rgba(254, 220, 76, 0.5);
+}
+
+[data-theme="dune"] .project-detail__client {
+  color: var(--dune-11);
+}
+
+[data-theme="dune"] .project-detail__client-label {
+  color: var(--dune-10);
+}
+
+[data-theme="dune"] .project-detail__client-name {
+  color: var(--dune-11);
+}
+
+[data-theme="dune"] .project-detail__client-location {
+  color: var(--dune-11);
+}
+
+[data-theme="dune"] .project-detail__meta-label {
+  color: var(--dune-10);
+}
+
+[data-theme="dune"] .project-detail__meta-value {
+  color: var(--dune-11);
+}
+
+[data-theme="dune"] .project-detail__meta-value--highlight {
+  color: var(--dune-orange);
+}
+
+[data-theme="dune"] .project-detail__rating-value {
+  color: var(--dune-11);
+}
+
+[data-theme="dune"] .project-detail__star {
+  color: var(--dune-6);
+}
+
+[data-theme="dune"] .project-detail__star--filled {
+  color: var(--dune-orange);
+}
+
+[data-theme="dune"] .project-detail__testimonial h3 {
+  color: var(--dune-orange);
+}
+
 [data-theme="dune"] .project-detail__quote {
   color: var(--dune-11);
+}
+
+[data-theme="dune"] .project-detail__link--primary {
+  background: var(--gradient-dune-sun);
+  color: #1a0f0c;
+  box-shadow: 0 16px 24px -18px var(--dune-red-glow);
+}
+
+[data-theme="dune"] .project-detail__link--primary:hover {
+  box-shadow: 0 22px 38px -16px var(--dune-red-glow);
+}
+
+[data-theme="dune"] .project-detail__link--secondary {
+  color: var(--dune-11);
+  border-color: rgba(251, 159, 37, 0.4);
+  background: rgba(251, 159, 37, 0.08);
+}
+
+[data-theme="dune"] .project-detail__link--secondary:hover {
+  color: var(--dune-12);
+  background: rgba(251, 159, 37, 0.18);
+  border-color: rgba(251, 159, 37, 0.5);
+}
+
+[data-theme="dune"] .project-detail__section h2 {
+  color: var(--dune-orange);
+}
+
+[data-theme="dune"] .project-detail__section p {
+  color: var(--dune-11);
+}
+
+[data-theme="dune"] .project-detail__placeholder {
+  color: var(--dune-10);
+}
+
+[data-theme="dune"] .project-detail__tech-list li {
+  color: var(--dune-11);
+  background: rgba(251, 159, 37, 0.12);
+  border-color: rgba(251, 159, 37, 0.3);
 }
 
 /* Contact Page – Dune overrides: Light text for better contrast */
@@ -490,7 +618,7 @@
 
 [data-theme="dune"] .contact__links > p {
   color: var(--dune-11);
-  text-align: left;
+  text-align: center;
 }
 
 [data-theme="dune"] .contact__social a {
@@ -520,6 +648,10 @@
 
 [data-theme="dune"] .experience-card__upwork-stat-label {
   color: var(--dune-11);
+}
+
+[data-theme="dune"] .education-card__title {
+  color: var(--dune-orange);
 }
 
 [data-theme="dune"] .education-card__institution {
