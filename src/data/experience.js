@@ -9,9 +9,10 @@ export const experienceTimeline = [
   {
     period: "March 2025 - Present",
     company: "Upwork",
-    role: "Freelancer",
-    location: null,
-    description: "Delivering cutting-edge geospatial web applications using Mapbox GL JS for environmental detection, land use analysis, and confidential client research on environmental incidents, including infrastructure mapping and oil pollution health impact analysis.",
+    role: "Geospatial Analyst | GIS Dev | Cartographer",
+    location: "Multan, Pakistan",
+    description:
+      "Freelance geospatial work for international clients: interactive maps (Mapbox GL JS, Leaflet), full-stack and Supabase-backed tooling, WordPress-embedded territory experiences, ArcGIS Pro cartography, and long-form GIS research. Public profile: Top Rated, 100% Job Success, $20/hr.",
   },
   {
     period: "June - August 2024",

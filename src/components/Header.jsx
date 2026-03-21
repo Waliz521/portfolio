@@ -17,6 +17,9 @@ function EarthIcon({ size = 18 }) {
 
 const THEME_KEY = "portfolio-theme";
 const SCROLL_THRESHOLD = 20;
+const DUNE_FONT_LINK_ID = "portfolio-font-dune-rise";
+const DUNE_FONT_STYLESHEET =
+  "https://db.onlinewebfonts.com/c/bca5da28daa9ee1c2ca8bc9f8b15ee28?family=Dune+Rise";
 
 function getInitialTheme() {
   if (typeof window === "undefined") return "dark";
@@ -46,6 +49,16 @@ export function Header() {
       
       faviconLink.setAttribute("href", faviconPath);
       appleTouchIcon.setAttribute("href", faviconPath);
+    }
+
+    if (theme === "dune" && typeof document !== "undefined") {
+      if (!document.getElementById(DUNE_FONT_LINK_ID)) {
+        const link = document.createElement("link");
+        link.id = DUNE_FONT_LINK_ID;
+        link.rel = "stylesheet";
+        link.href = DUNE_FONT_STYLESHEET;
+        document.head.appendChild(link);
+      }
     }
   }, [theme]);
 

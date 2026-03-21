@@ -1,9 +1,10 @@
+/** Card descriptions are 40 words each so project grid tiles keep a consistent height. */
 export const projects = [
   {
     id: "hotspot-spatial-correlation",
     title: "Hotspot & Spatial Correlation Analysis",
     description:
-      "Advanced spatial analysis application identifying statistically significant hotspots and correlation patterns in geospatial data, enabling interactive exploration of spatial relationships.",
+      "Advanced spatial analysis application identifying statistically significant hotspots and correlation patterns in geospatial data. Mapbox GL JS powers full interactive exploration: upload datasets, adjust analysis settings, and review relationships across regions with responsive maps, legible symbology, and an analyst-ready workflow.",
     image: "/images/Spatial_Correlation.png",
     tags: ["Mapbox GL JS", "Hotspot Analysis", "Spatial Correlation"],
     category: "pet-projects",
@@ -34,7 +35,7 @@ export const projects = [
     id: "atlantic-hurricane-visualization",
     title: "Atlantic Hurricane Visualization",
     description:
-      "Interactive timeline visualization of the 2000 Atlantic hurricane season, featuring animated hurricane paths and detailed intensity data for comprehensive storm analysis.",
+      "Interactive timeline of the 2000 Atlantic hurricane season using Mapbox GL JS with animated storm tracks and intensity evolution. Scrub time, compare cyclone paths, and inspect wind, pressure, and landfall notes in a responsive layout tuned for seasonal review work.",
     image: "/images/Atlantic_Hurricanes.png",
     tags: ["Mapbox GL JS", "Animated Hurricanes", "Timeline Visualization"],
     category: "pet-projects",
@@ -61,7 +62,7 @@ export const projects = [
     id: "van-gogh-wind-map",
     title: "Van Gogh style wind speed map",
     description:
-      "An artistic visualization of wind patterns using van Gogh's brushstroke technique, transforming meteorological data into an interactive, impressionist-style map for data exploration.",
+      "Artistic wind visualization inspired by van Gogh brushwork, built on ArcGIS Online with custom styling that turns breezes into flowing strokes. Explore speed and direction interactively while keeping meteorological signals readable for curious viewers and cartography-minded audiences alike everywhere today.",
     image: "/images/Van_gogh.png",
     tags: ["ArcGIS Online", "Artistic Cartography", "Wind Data Visualization"],
     category: "pet-projects",

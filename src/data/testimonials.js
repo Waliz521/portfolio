@@ -1,9 +1,10 @@
+/** Card descriptions are 40 words each so testimonial grid tiles keep a consistent height. */
 export const upworkProfileUrl = "https://www.upwork.com/freelancers/~015f3845ea728cd7f0?mp_source=share";
 
 export const upworkStats = {
   totalEarnings: "$2K+",
-  totalJobs: "2",
-  totalHours: "283",
+  totalJobs: "6",
+  totalHours: "299",
   jobSuccess: "100%",
   badges: ["Top Rated", "100% Job Success"],
 };
@@ -12,7 +13,8 @@ export const testimonials = [
   {
     id: "oil-spill-mapping",
     title: "Oil Spill Mapping & GIS Data Collection - Sudan & South Sudan",
-    description: "Geospatial research and mapping project analyzing oil spill incidents, infrastructure development, and environmental impacts in Sudan and South Sudan.",
+    description:
+      "Long-form geospatial research and cartography for Sudan and South Sudan oil infrastructure, spills, and environmental risk. Produced dossier-ready maps and figures from QGIS and ArcGIS pipelines, satellite and SAR workflows, validation against open sources, and narrative layouts for policy readers.",
     rating: 5.0,
     dateRange: "Mar 11, 2025 - Dec 23, 2025",
     amount: "$2,264.00",
@@ -44,7 +46,8 @@ export const testimonials = [
   {
     id: "rome-hotel-map",
     title: "The Secret Boutique Leads Map - Rome Hotels Mapping Application",
-    description: "Full-stack interactive mapping application for visualizing boutique hotels and leads across Rome and surrounding municipalities.",
+    description:
+      "Full-stack hotel lead map for Rome area municipalities using Supabase, Node, Leaflet, and MapTiler basemaps. Operators filter by city, stars, status, and pipeline phase while panning dense urban tiles so large lead lists stay fast, legible, and Netlify friendly daily.",
     rating: 5.0,
     dateRange: "Oct 30, 2025 - Nov 9, 2025",
     amount: "$150.00",
@@ -72,7 +75,8 @@ export const testimonials = [
   {
     id: "uk-heatmap-creation",
     title: "Heat Map Creation from Data",
-    description: "Created a UK Sales Value Heatmap from 1,500+ data points. Processed postcodes and sales values to visualize order value density across the United Kingdom.",
+    description:
+      "UK sales heat maps from 1,500+ billing postcodes (2023-2026), deduplicated in ArcGIS Pro. Weighted density surfaces, hub callouts, monthly revenue trend inset, and print layouts help leadership and analysts see concentration without rebuilding spreadsheets manually each quarter for planning teams.",
     rating: null,
     dateRange: "Jan 14, 2026 - Present",
     amount: "$20.00",
@@ -102,9 +106,100 @@ export const testimonials = [
     results: "Successfully delivered a comprehensive United Kingdom Sales Value Heatmap that visualizes sales concentration across the UK, Ireland, and parts of France. The map clearly identifies major sales hubs including London & Greater London (primary sales hub), Midlands (Birmingham area), North West England (Manchester-Liverpool area), and other key regions. The visualization includes detailed annotations, a proper legend, and an integrated monthly sales revenue trend chart showing seasonal patterns from February 2023 to January 2026. Delivered both a classified heat map (Option 1 - clear groups) and a point location map showing individual order locations. The project effectively communicates sales distribution patterns and helps identify key market areas for business analysis and geo-targeting budget decisions.",
   },
   {
+    id: "uk-territories-wordpress-map",
+    title: "Colour-Coded Interactive UK Territories Map (WordPress)",
+    description:
+      "Interactive England and Wales franchise territory map embedded in WordPress with five colour coded statuses, deep zoom, modals, and filters. React, Leaflet, Tailwind, Radix, Turf-merged GeoJSON, optional Supabase sync for admin edits, and responsive layouts on phones, tablets, and desktops.",
+    rating: 5.0,
+    dateRange: "Mar 7, 2026 - Mar 9, 2026",
+    amount: "$40.00",
+    paymentType: "fixed",
+    testimonial:
+      "Zahak is exceptionally fantastic professional, prompt, experienced and easy to work with. He is one of the best talents I have worked with. I see us working together long term.",
+    platform: "Upwork",
+    clientName: "Olatunde Adedoyin",
+    clientLocation: "Dartford, United Kingdom",
+    category: "freelance",
+    links: [
+      {
+        label: "Live demo",
+        url: "https://uk-territories-map.vercel.app/",
+      },
+      {
+        label: "Source code",
+        url: "https://github.com/Waliz521/uk-territories-map",
+      },
+    ],
+    detailedDescription:
+      "Built an interactive UK territories experience for a UK care-franchise WordPress website, improving on a reference-style territory map with a cleaner UI, smoother interactions, and clearer status communication. The map shows England and Wales areas coloured by franchise status, supports low-level zoom for local detail, and lets users click a territory to open a compact modal with area metadata (e.g. areas served, population, status). Filtering by territory and status makes large regions scannable on desktop and mobile. The solution is implemented as a modern React 19 + TypeScript + Vite front end (Leaflet / React-Leaflet, Tailwind CSS, Radix UI) with GeoJSON boundaries and @turf/turf for territory grouping, and is packaged for embedding alongside WordPress. An optional Supabase connection allows admin-side edits to appear on the public map when deployment env vars are configured; otherwise the map falls back to static bundled data.",
+    technologies: [
+      "React 19 & TypeScript",
+      "Vite",
+      "WordPress (embed / integration)",
+      "Leaflet & React-Leaflet",
+      "Tailwind CSS",
+      "Radix UI (Dialog, Select)",
+      "@turf/turf",
+      "GeoJSON",
+      "Supabase (optional live data)",
+    ],
+    challenges:
+      "Delivering a map that feels noticeably more refined than a typical franchise territory demo—clear colour semantics for five statuses, readable at all zoom levels, fast enough with detailed polygons, and fully usable on phones—while fitting into an existing WordPress site and optionally staying in sync with admin updates.",
+    solutions:
+      "Designed a focused colour system (purple sold, blue reserved, green available, amber under offer, grey unavailable), built accessible modals and selects with Radix, and used Leaflet with responsive layout and sensible defaults for touch and zoom. Used Turf to merge and group geometry for territory-level display. Split a Vite-powered app with a WordPress-oriented build path so the client can host the bundle alongside their site, and wired optional Supabase reads so the same project can serve static or live data with a visible “live data” state when connected.",
+    results:
+      "Shipped on schedule for a fixed-price engagement with a 5.0 client rating. The client highlighted professionalism, speed, and clarity, and indicated interest in ongoing collaboration. The implementation is available as open source on GitHub with a public Vercel demo (see links above).",
+  },
+  {
+    id: "blossoming-care-territories-admin",
+    title: "Blossoming Care — Territories Data Admin",
+    description:
+      "Supabase admin for Blossoming Care territories with secure login, CRUD, search, filters, and CSV import export aligned to the public map. React nineteen, TypeScript, Vite, Tailwind, and Radix keep WordPress embeds current without redeploys while franchise staff update records daily.",
+    rating: null,
+    dateRange: "Mar 9, 2026 - Present",
+    amount: "$20.00",
+    paymentType: "fixed",
+    testimonial: "",
+    platform: "Upwork",
+    clientName: "Olatunde Adedoyin",
+    clientLocation: "Dartford, United Kingdom",
+    category: "freelance",
+    links: [
+      {
+        label: "Live demo",
+        url: "https://blossoming-care-admin.vercel.app/",
+      },
+      {
+        label: "Source code",
+        url: "https://github.com/Waliz521/blossoming-care-admin",
+      },
+      {
+        label: "Public map (repo)",
+        url: "https://github.com/Waliz521/uk-territories-map",
+      },
+    ],
+    detailedDescription:
+      "Companion admin application for the Blossoming Care UK territories map. The panel lets authorised users manage location and territory data (add, edit, delete), filter and search records, and export or import CSV for bulk workflows. Data lives in Supabase with auth and row-level access patterns suited to a small operations team; the public map consumes the same Supabase project when live env vars are set, so admin changes can appear on the embedded WordPress map without redeploying the map bundle. The Upwork job listing is private; scope and stack are documented in the open-source repo and deployment.",
+    technologies: [
+      "React 19 & TypeScript",
+      "Vite",
+      "Supabase (database, auth, API)",
+      "Tailwind CSS",
+      "Radix UI (Dialog, Select)",
+      "CSV export / import",
+    ],
+    challenges:
+      "Building a focused admin UX that stays fast for non-technical users, keeping Supabase schema and client config aligned with the existing map app, and handling safe bulk data movement via import/export without breaking territory integrity.",
+    solutions:
+      "Reused patterns from the map stack (React 19, Vite, Tailwind, Radix) for consistency, used Supabase for auth and persisted rows consumed by the map, and implemented clear list/filter flows plus CSV round-tripping with validation appropriate for franchise territory data.",
+    results:
+      "Fixed-price engagement in progress (Mar 9, 2026 onwards); $20.00 earned to date. Client review and final rating will be updated when the contract closes. Source and demo are published for transparency (see links above).",
+  },
+  {
     id: "sudan-conflict-map",
     title: "Sudan Conflict Map",
-    description: "Interactive geospatial visualization application for analyzing conflict events in Sudan using ACLED data, featuring temporal filtering and incident clustering capabilities.",
+    description:
+      "ACLED powered Sudan conflict explorer in Mapbox GL JS with temporal filters, clustering, and rich popups per incident. Researchers scan violence types, actors, dates, and locations across zoom while the interface stays responsive for briefings, newsrooms, and humanitarian analysis today.",
     rating: 5.0,
     dateRange: "Mar 11, 2025 - Dec 23, 2025",
     amount: null,
@@ -142,7 +237,8 @@ export const testimonials = [
   {
     id: "port-sudan-drone-strikes",
     title: "Drone Strike Locations: Port Sudan",
-    description: "Interactive mapping application visualizing drone strike locations and targets in Port Sudan, including airports, naval bases, fuel storage facilities, and strategic infrastructure.",
+    description:
+      "Port Sudan drone strike atlas mapping airports, naval yards, fuel storage, and verified infrastructure in Mapbox GL JS. Fly-to buttons, sourced popups, gaps where coordinates are missing, and clear hierarchy help analysts trace targeting patterns across the busy port cityscape.",
     rating: 5.0,
     dateRange: "Mar 11, 2025 - Dec 23, 2025",
     amount: null,

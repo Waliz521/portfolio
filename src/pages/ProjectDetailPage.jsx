@@ -346,7 +346,7 @@ export function ProjectDetailPage() {
               </div>
             )}
 
-            {!isFreelanceProject && project.links && project.links.length > 0 && (
+            {project.links && project.links.length > 0 && (
               <div className="project-detail__links">
                 {project.links.map((link) => (
                   <a
