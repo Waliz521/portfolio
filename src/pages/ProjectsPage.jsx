@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Projects } from "../components/Projects";
 import { Testimonials } from "../components/Testimonials";
 import { projects } from "../data/projects";
-import { testimonials, getTestimonialsByCategory } from "../data/testimonials";
+import { getTestimonialsByCategory } from "../data/testimonials";
+import { ClientsMapTeaser } from "../components/ClientsMapTeaser";
 
 export function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState("freelance");
@@ -43,13 +44,16 @@ export function ProjectsPage() {
 
         <div className="projects-page__content">
           {activeCategory === "freelance" && (
-            <Testimonials
-              limit={undefined}
-              heading="Freelance Projects"
-              eyebrow="/ Freelance Work"
-              showViewAll={false}
-              category="freelance"
-            />
+            <>
+              <Testimonials
+                limit={undefined}
+                heading="Freelance Projects"
+                eyebrow="/ Freelance Work"
+                showViewAll={false}
+                category="freelance"
+              />
+              <ClientsMapTeaser variant="projects" />
+            </>
           )}
 
           {activeCategory === "pet-projects" && (

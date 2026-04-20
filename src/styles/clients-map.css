@@ -1,0 +1,316 @@
+/* --- Client map page & Leaflet --- */
+.clients-map-page {
+  padding: calc(2rem + var(--header-height)) 0 4rem;
+  min-height: calc(100vh - var(--header-height));
+}
+
+.clients-map-page__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 100%;
+}
+
+.clients-map-page__header .section__heading {
+  margin-bottom: 0;
+}
+
+.clients-map-page__lead {
+  max-width: 42rem;
+  margin-top: 0.75rem;
+  color: var(--color-text);
+  opacity: 0.92;
+  line-height: 1.55;
+}
+
+.clients-map-page__back {
+  margin-top: 1.25rem;
+  align-self: flex-start;
+}
+
+/* Same horizontal rhythm as the rest of the site (site-wrapper padding); tall enough for Leaflet */
+.clients-map-page__map {
+  --clients-map-height: clamp(520px, 76vh, 900px);
+  width: 100%;
+  height: var(--clients-map-height);
+  min-height: var(--clients-map-height);
+  padding: 0;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.clients-map {
+  width: 100%;
+  border-radius: inherit;
+}
+
+.clients-map__leaflet {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+/* One element carries both classes; explicit height must not be overridden by .clients-map */
+.clients-map.clients-map-page__map .clients-map__leaflet {
+  min-height: 0;
+}
+
+.leaflet-container {
+  font-family: inherit;
+  background: #e8e8e8;
+}
+
+.clients-map-marker-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+.clients-map-marker-svg {
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.28));
+}
+
+/* Plus Jakarta Sans (default site font from dark theme) — never Dune Rise inside map UI */
+.clients-map {
+  --clients-map-popup-font: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+.clients-map .leaflet-popup.clients-map-popup {
+  font-family: var(--clients-map-popup-font);
+}
+
+.clients-map .leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    rgba(15, 31, 15, 0.98) 0%,
+    rgba(22, 42, 24, 0.97) 48%,
+    rgba(18, 38, 20, 0.98) 100%
+  );
+  color: #f0f8f0;
+  box-shadow:
+    0 24px 48px -16px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(127, 200, 127, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.clients-map .leaflet-popup-content {
+  margin: 0;
+  min-width: 260px;
+  max-width: 300px;
+  font-family: var(--clients-map-popup-font);
+  line-height: 1.5;
+}
+
+.clients-map .leaflet-popup-tip {
+  background: rgba(18, 36, 20, 0.98);
+  box-shadow: 0 0 0 1px rgba(127, 200, 127, 0.28);
+}
+
+.clients-map .leaflet-popup-close-button {
+  width: 32px;
+  height: 32px;
+  top: 10px;
+  right: 10px;
+  padding: 0;
+  font-size: 22px;
+  line-height: 32px;
+  color: rgba(240, 248, 240, 0.75);
+  font-family: var(--clients-map-popup-font);
+  border-radius: 10px;
+  transition:
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.clients-map .leaflet-popup-close-button:hover {
+  color: #f0f8f0;
+  background: rgba(127, 200, 127, 0.18);
+}
+
+.clients-map-popup__inner {
+  padding: 1.15rem 1.35rem 1.25rem;
+  position: relative;
+  font-family: var(--clients-map-popup-font);
+}
+
+.clients-map-popup__inner::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.85rem;
+  bottom: 0.85rem;
+  width: 3px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--color-primary, #7fc87f), var(--color-highlight, #a8e8a8));
+  opacity: 0.95;
+}
+
+.clients-map-popup__head {
+  padding-left: 0.65rem;
+  margin-bottom: 0.35rem;
+}
+
+.clients-map-popup__eyebrow {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(168, 232, 168, 0.85);
+  margin-bottom: 0.35rem;
+}
+
+.clients-map-popup__name {
+  display: block;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: #f6fcf6;
+}
+
+.clients-map-popup__loc {
+  margin: 0 0 0.65rem;
+  padding-left: 0.65rem;
+  font-size: 0.82rem;
+  color: rgba(240, 248, 240, 0.72);
+  line-height: 1.4;
+}
+
+.clients-map-popup__rule {
+  height: 1px;
+  margin: 0.5rem 0 0.65rem 0.65rem;
+  margin-right: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(127, 200, 127, 0.45),
+    rgba(127, 200, 127, 0.08),
+    transparent
+  );
+  border: 0;
+}
+
+.clients-map-popup__list-label {
+  margin: 0 0 0.4rem 0.65rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(168, 232, 168, 0.75);
+}
+
+.clients-map-popup__projects {
+  margin: 0;
+  padding: 0.35rem 0.5rem 0.15rem 0.65rem;
+  list-style: none;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.clients-map-popup__projects li {
+  position: relative;
+  padding: 0.35rem 0 0.35rem 1rem;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.clients-map-popup__projects li::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-primary, #7fc87f);
+  box-shadow: 0 0 0 2px rgba(127, 200, 127, 0.25);
+}
+
+.clients-map-popup__projects li:hover {
+  background: rgba(127, 200, 127, 0.1);
+}
+
+.clients-map-popup__projects a {
+  color: #c8f0c8;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.clients-map-popup__projects a:hover {
+  color: #fff;
+  border-bottom-color: rgba(168, 232, 168, 0.6);
+}
+
+.clients-map-popup__amt {
+  color: rgba(240, 248, 240, 0.65);
+  font-weight: 500;
+  font-size: 0.82em;
+}
+
+/* --- Global reach card (Projects → Freelance, below grid) --- */
+.clients-map-teaser {
+  padding: 0;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.clients-map-teaser__panel {
+  padding: 2rem 1.75rem;
+}
+
+.clients-map-teaser--projects .clients-map-teaser__panel {
+  padding: 2.75rem 2.5rem;
+}
+
+.clients-map-teaser--projects .section__eyebrow {
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+}
+
+.clients-map-teaser--projects h2 {
+  font-size: clamp(1.65rem, 2.8vw, 2.35rem);
+  line-height: 1.2;
+  max-width: 28ch;
+}
+
+.clients-map-teaser--projects .clients-map-teaser__text {
+  font-size: 1.08rem;
+  max-width: 44rem;
+}
+
+.clients-map-teaser--projects .btn {
+  font-size: 1.05rem;
+  padding: 0.85rem 1.75rem;
+}
+
+.section__heading--tight h2 {
+  margin-bottom: 0.5rem;
+}
+
+.clients-map-teaser__text {
+  max-width: 40rem;
+  margin: 0.5rem 0 1.25rem;
+  line-height: 1.55;
+  opacity: 0.92;
+}
+
+[data-theme="dune"] {
+  --clients-map-marker-stroke: #5c1803;
+  --clients-map-marker-fill: #fb9f25;
+}
+
+[data-theme="dark"] {
+  --clients-map-marker-stroke: #0d9488;
+  --clients-map-marker-fill: #5eead4;
+}
