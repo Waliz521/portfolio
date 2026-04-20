@@ -44,6 +44,48 @@ export const testimonials = [
     results: "Successfully delivered comprehensive geospatial analysis contributing to Sections 8, 9, and 10 of a major research dossier. Created multiple high-quality maps including oil spill incident visualizations, infrastructure development timelines, regional basin maps, and health impact assessments. The work provided critical geospatial evidence linking oil infrastructure development to environmental impacts and regional conflicts. Section 10 served as a comprehensive summary of all geospatial contributions, demonstrating the scope and impact of the mapping and analysis work completed over 283 hours of dedicated research and cartographic design.",
   },
   {
+    id: "nigeria-power-impact-dashboard",
+    title: "Nigeria Power Impact Map Dashboard",
+    description:
+      "Responsive single-page Nigeria power-impact dashboard mapping all thirty-six states with green, amber, and red status cues, Branch360 branding, and practical obfuscation to deter casual source theft. Built with React, TypeScript, and Vite; deployed on Vercel with repo transparency for stakeholders.",
+    rating: 5.0,
+    dateRange: "Apr 18, 2026 - Apr 19, 2026",
+    amount: "$20.00",
+    paymentType: "fixed",
+    testimonial:
+      "Zahak is very profesional, highly skilled and great to work with. He has completed multiple projects for us already and he delivered successfully and beyond expectations on all. Very satisfied with his work.",
+    platform: "Upwork",
+    clientName: "Olatunde Adedoyin",
+    clientLocation: "Dartford, United Kingdom",
+    category: "freelance",
+    links: [
+      {
+        label: "Live demo",
+        url: "https://nigeria-power-impact-dashboard.vercel.app/",
+      },
+      {
+        label: "Source code",
+        url: "https://github.com/Waliz521/Nigeria-Power-Impact-Dashboard",
+      },
+    ],
+    detailedDescription:
+      "Delivered a standalone, single-page interactive map dashboard focused on Nigeria, with geometry for all 36 states and a clear traffic-light visual language: green for stable conditions, amber for warning, and red for critical. The experience integrates the client’s Branch360 branding and is fully responsive across common breakpoints. The build also includes pragmatic code-protection measures aimed at discouraging unauthorized copying while keeping the shipped bundle maintainable for the client’s team.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Interactive mapping & state-level polygons",
+      "Responsive layout",
+      "Vercel (deployment)",
+    ],
+    challenges:
+      "Keeping a dense national map legible on small screens, applying consistent status semantics across every state, matching supplied branding without cluttering the map chrome, and balancing client requests for copy protection with performance and long-term maintainability.",
+    solutions:
+      "Structured the UI around a single dashboard view with responsive spacing and typography, used a simple three-tier status palette for quick scanning, placed Branch360 assets per brand guidelines, and implemented lightweight protection patterns suitable for a public Vite build while documenting behavior in the open repository.",
+    results:
+      "Completed as a fixed-price contract with a 5.0 client rating; milestone funded and released on schedule. The dashboard is live on Vercel and the implementation is published on GitHub for review and handoff.",
+  },
+  {
     id: "rome-hotel-map",
     title: "The Secret Boutique Leads Map - Rome Hotels Mapping Application",
     description:
@@ -107,7 +149,7 @@ export const testimonials = [
   },
   {
     id: "uk-territories-wordpress-map",
-    title: "Colour-Coded Interactive UK Territories Map (WordPress)",
+    title: "Add a Colour-Coded Map Page to an Existing WordPress Website",
     description:
       "Interactive England and Wales franchise territory map embedded in WordPress with five colour coded statuses, deep zoom, modals, and filters. React, Leaflet, Tailwind, Radix, Turf-merged GeoJSON, optional Supabase sync for admin edits, and responsive layouts on phones, tablets, and desktops.",
     rating: 5.0,
@@ -280,7 +322,26 @@ export function getTestimonialById(id) {
   return testimonials.find((testimonial) => testimonial.id === id);
 }
 
+/** Parses Upwork-style money strings (e.g. "$2,264.00") for sorting; null/invalid → no numeric value. */
+function parseMoneyAmount(amount) {
+  if (amount == null || typeof amount !== "string") return null;
+  const cleaned = amount.replace(/,/g, "").replace(/[^0-9.]/g, "");
+  const n = parseFloat(cleaned);
+  return Number.isFinite(n) ? n : null;
+}
+
 // Helper function to get testimonials by category
 export function getTestimonialsByCategory(category) {
-  return testimonials.filter((testimonial) => testimonial.category === category);
+  const list = testimonials.filter((testimonial) => testimonial.category === category);
+  if (category === "freelance") {
+    return [...list].sort((a, b) => {
+      const na = parseMoneyAmount(a.amount);
+      const nb = parseMoneyAmount(b.amount);
+      if (na == null && nb == null) return 0;
+      if (na == null) return 1;
+      if (nb == null) return -1;
+      return nb - na;
+    });
+  }
+  return list;
 }
