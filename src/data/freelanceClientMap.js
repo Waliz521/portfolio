@@ -9,6 +9,8 @@ export const FREELANCE_LOCATION_COORDS = {
   "Dartford, United Kingdom": [51.4462, 0.2167],
   "Rome, Italy": [41.9028, 12.4964],
   "Weston Colville, United Kingdom": [52.142, 0.374],
+  "Kuwait, Kuwait": [29.3759, 47.9774],
+  "East London, South Africa": [-32.97, 27.86],
 };
 
 function projectAmountValue(amount) {

@@ -3,7 +3,7 @@ export const upworkProfileUrl = "https://www.upwork.com/freelancers/~015f3845ea7
 
 export const upworkStats = {
   totalEarnings: "$2K+",
-  totalJobs: "6",
+  totalJobs: "9",
   totalHours: "299",
   jobSuccess: "100%",
   badges: ["Top Rated", "100% Job Success"],
@@ -84,6 +84,95 @@ export const testimonials = [
       "Structured the UI around a single dashboard view with responsive spacing and typography, used a simple three-tier status palette for quick scanning, placed Branch360 assets per brand guidelines, and implemented lightweight protection patterns suitable for a public Vite build while documenting behavior in the open repository.",
     results:
       "Completed as a fixed-price contract with a 5.0 client rating; milestone funded and released on schedule. The dashboard is live on Vercel and the implementation is published on GitHub for review and handoff.",
+  },
+  {
+    id: "nigeria-water-impact-dashboard",
+    title: "Nigeria Water Impact Map Dashboard",
+    description:
+      "Single-page responsive Nigeria water-impact map for all thirty-six states with legible status cues, Branch360-consistent presentation, and patterns aligned to prior Nigeria impact work. React, TypeScript, and Vite; short fixed-price engagement with 5.0 client feedback on quality, speed, and strong communication.",
+    rating: 5.0,
+    dateRange: "Apr 20, 2026 - Apr 24, 2026",
+    amount: "$20.00",
+    paymentType: "fixed",
+    testimonial:
+      "Again, Zahak has demonstrated professional high quality standard of work, He is a good communicator and works at speed to deliver great work.",
+    platform: "Upwork",
+    clientName: "Olatunde Adedoyin",
+    clientLocation: "Dartford, United Kingdom",
+    category: "freelance",
+    detailedDescription:
+      "Delivered a responsive, single-page interactive water-impact map dashboard for Nigeria’s states, following the same product pattern as the client’s other Branch360 impact work: a legible map-first layout, state-level status communication, and branding consistency. The build targets modern browsers, prioritizes quick load and touch-friendly controls on phones and tablets, and ships as a Vite-tuned static or SPA-style bundle ready for the client’s hosting workflow.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Interactive mapping (state-level)",
+      "Responsive layout",
+    ],
+    challenges:
+      "Reusing the impact-dashboard pattern for a new water-focused dataset and indicators without confusing users who already saw the power dashboard, while keeping the map uncluttered and fast across devices.",
+    solutions:
+      "Aligned typography, color semantics, and map chrome with the client’s prior Nigeria dashboard work, structured state data for a single clear readout per region, and tested breakpoints so panels and the map share space predictably on small screens.",
+    results:
+      "Fixed-price contract completed Apr 20–24, 2026 with a 5.0 rating. The client called out quality, communication, and speed; the engagement adds another deliverable in an ongoing series with the same client.",
+  },
+  {
+    id: "qgis-overlay-two-maps",
+    title: "Overlay two maps (QGIS — neighborhoods & land use)",
+    description:
+      "QGIS: neighborhood image over a land-use basemap, opacity balanced so class colours and place labels read together. Static map images only—no attribute joins. Fixed-price, Kuwait, Apr 23–24, 2026, $30.00. Emphasis: layer order, symbology, and a clean review export for sign-off.",
+    rating: null,
+    dateRange: "Apr 23, 2026 - Apr 24, 2026",
+    amount: "$30.00",
+    paymentType: "fixed",
+    testimonial: "",
+    platform: "Upwork",
+    clientName: "Er Erm",
+    clientLocation: "Kuwait, Kuwait",
+    category: "freelance",
+    detailedDescription:
+      "The scope was to combine two client-supplied map images—neighborhoods by area and land use with area—into a single, readable QGIS project. The land-use graphic was used as the lower layer to carry colour and land-class patterns; the neighborhood graphic was placed above. Neighborhood opacity was reduced until land-use information stayed visible and neighborhood area names and boundaries could still be picked out, following a simple overlay model rather than a database merge. A PNG export (TheMap.png) was prepared for sign-off, and the QGIS project file was left structured so the client or a colleague could adjust transparency or order later. Engagement: fixed price, based in Kuwait, delivered within the Apr 23–24, 2026 window.",
+    technologies: [
+      "QGIS",
+      "Raster & image overlay",
+      "Layer order & opacity control",
+      "Cartographic legibility (dual-layer read)",
+    ],
+    challenges:
+      "The inputs were flat map art, not feature layers, so the design problem was visual: any opacity change trades land-use legibility against neighborhood linework and labels. The stack had to stay crisp when zoomed to detail and still read at overview scale on screen.",
+    solutions:
+      "Standardized the draw order, applied controlled transparency to the top layer, and adjusted contrast and label visibility in QGIS so both themes stayed interpretable. Shared an interim export, refined once based on the client’s read of alignment and clarity, and handed off a tidy project file with the final settings.",
+    results:
+      "Delivered an approved dual-map overlay in QGIS with export suitable for the client’s review; fixed-price contract total $30.00 (milestone and bonus) for the agreed Apr 23–24, 2026 window.",
+  },
+  {
+    id: "lake-huron-bathymetry-georgian-bay",
+    title: "High-Resolution Lake Huron Bathymetry Map Design",
+    description:
+      "Pointe-au-Baril, Georgian Bay bathymetry in ArcGIS Pro: merged NOAA, land mask, 3/5 m contours, hillshade, light palette, feet soundings, layout previews for a wall map. ~0–30 m, island-dense. $5 milestone; scope ended by agreement before $100 final art.",
+    rating: null,
+    dateRange: "Nov 29, 2025 - Present",
+    amount: "$5.00",
+    paymentType: "fixed",
+    testimonial: "",
+    platform: "Upwork",
+    clientName: "Schalk Janse Van Rensburg",
+    clientLocation: "East London, South Africa",
+    category: "freelance",
+    detailedDescription:
+      "Fixed-price R&D toward a 3' × 5' (and discussed 4' × 5') wall map of the Pointe-au-Baril / Georgian Bay (Lake Huron) area, beyond off-the-shelf charts: the client wanted hybrid NOAA-based bathymetry, fine underwater structure, and a lighter, less heavy blue look than a default ramp, with depth in feet, vintage-style map elements, and print-ready art in principle. The entire workflow was done in ArcGIS Pro: building on merged NOAA Great Lakes / CUDEM-scale bathymetry, masking land, generating contours at multiple test intervals (including 3 m and 5 m from high-resolution public grids), hillshade and shaded relief passes, and many layout and symbology iterations (basemap options, legibility, labels, and palette) against a client-supplied corner bounding box. The engagement surfaced a structural issue in this exact window: total depth range is on the order of 0–30 m with a maze of islets, so smooth gradients read subtle and contour lines would bundle in channels. After previews and discussion, the client decided to end the work before a full $100.00, multi-milestone delivery. The only funded milestone to release was a $5.00 contract-opening tranche. Remaining Upwork state may still show the job until the client fully closes the record; the work product through that milestone is the bathymetry processing, analysis, and cartographic trial layouts described above, not a finished 300 dpi print shipped to spec.",
+    technologies: [
+      "ArcGIS Pro",
+      "NOAA Great Lakes / CUDEM bathymetry (merge & clean)",
+      "Land masking, contours (multi-interval), hillshade",
+      "Map layout, symbology & large-format (print) intent",
+    ],
+    challenges:
+      "Reconciling a strong visual reference (AI/blue sample and hybrid NOAA look) with the real seafloor: the Pointe au Baril extent is shallow, nearly flat, and full of small islands, so the same ‘dramatic’ bathymetry read as a wide-area or less fragmented reference is difficult at this scale. Balancing the client’s wish for fine contours with legibility, and land detail from preferred basemaps with bathymetry overlays, without promising relief the public data do not support.",
+    solutions:
+      "Delivered a structured ArcGIS Pro sequence: data merge and QA, land removal, interval testing, shaded relief, palette moves toward a lighter water ramp, soundings in feet, and serial layout feedback. Set expectations in thread with the physics of the data (low vertical range, channel clustering) and ended the contract scope professionally when the client chose to stop after the initial milestone, with milestone funds released in good order.",
+    results:
+      "First Upwork milestone ($5.00, hiring-fee) approved and released; the broader $100.00 / multi-milestone plan for final print and shipping was not executed. The effort through the released milestone is data acquisition, bathymetric processing, contouring, and repeated layout and styling previews for the agreed extent, produced entirely in ArcGIS Pro.",
   },
   {
     id: "rome-hotel-map",

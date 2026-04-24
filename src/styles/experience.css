@@ -250,6 +250,11 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-muted);
+  line-height: 1.35;
+  max-width: 12rem;
+  margin-inline: auto;
+  white-space: normal;
+  hyphens: auto;
 }
 
 .experience-card__upwork-stat-value {

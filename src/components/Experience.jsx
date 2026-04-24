@@ -60,7 +60,9 @@ export function Experience() {
                                 <span className="experience-card__upwork-stat-value">{upworkStats.totalEarnings}</span>
                               </div>
                               <div className="experience-card__upwork-stat">
-                                <span className="experience-card__upwork-stat-label">Jobs Completed</span>
+                                <span className="experience-card__upwork-stat-label">
+                                  Completed jobs and in progress
+                                </span>
                                 <span className="experience-card__upwork-stat-value">{upworkStats.totalJobs}</span>
                               </div>
                               <div className="experience-card__upwork-stat">
