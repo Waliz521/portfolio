@@ -120,18 +120,18 @@ export const testimonials = [
     id: "qgis-overlay-two-maps",
     title: "Overlay two maps (QGIS — neighborhoods & land use)",
     description:
-      "QGIS: neighborhood image over a land-use basemap, opacity balanced so class colours and place labels read together. Static map images only—no attribute joins. Fixed-price, Kuwait, Apr 23–24, 2026, $30.00. Emphasis: layer order, symbology, and a clean review export for sign-off.",
-    rating: null,
+      "QGIS dual-layer overlay: neighborhood above land use, opacity tuned for dual read. Kuwait client, fixed price, $20 milestone and $10 bonus ($30 total). Completed Apr 24, 2026; 5.0 Upwork feedback; raster stack and clean project export.",
+    rating: 5.0,
     dateRange: "Apr 23, 2026 - Apr 24, 2026",
     amount: "$30.00",
     paymentType: "fixed",
-    testimonial: "",
+    testimonial: "Quick and efficient.",
     platform: "Upwork",
     clientName: "Er Erm",
     clientLocation: "Kuwait, Kuwait",
     category: "freelance",
     detailedDescription:
-      "The scope was to combine two client-supplied map images—neighborhoods by area and land use with area—into a single, readable QGIS project. The land-use graphic was used as the lower layer to carry colour and land-class patterns; the neighborhood graphic was placed above. Neighborhood opacity was reduced until land-use information stayed visible and neighborhood area names and boundaries could still be picked out, following a simple overlay model rather than a database merge. A PNG export (TheMap.png) was prepared for sign-off, and the QGIS project file was left structured so the client or a colleague could adjust transparency or order later. Engagement: fixed price, based in Kuwait, delivered within the Apr 23–24, 2026 window.",
+      "The scope was to combine two client-supplied map images—neighborhoods by area and land use with area—into a single, readable QGIS project. The land-use graphic was used as the lower layer to carry colour and land-class patterns; the neighborhood graphic was placed above. Neighborhood opacity was reduced until land-use information stayed visible and neighborhood area names and boundaries could still be picked out, following a simple overlay model rather than a database merge. A PNG export (TheMap.png) was prepared for sign-off, and the QGIS project file was left structured so the client or a colleague could adjust transparency or order later. The contract completed on Upwork on Apr 24, 2026: the $20.00 milestone released, a $10.00 bonus paid, the contract ended, and the client left a 5.0 rating with the public feedback quoted on this card.",
     technologies: [
       "QGIS",
       "Raster & image overlay",
@@ -143,7 +143,7 @@ export const testimonials = [
     solutions:
       "Standardized the draw order, applied controlled transparency to the top layer, and adjusted contrast and label visibility in QGIS so both themes stayed interpretable. Shared an interim export, refined once based on the client’s read of alignment and clarity, and handed off a tidy project file with the final settings.",
     results:
-      "Delivered an approved dual-map overlay in QGIS with export suitable for the client’s review; fixed-price contract total $30.00 (milestone and bonus) for the agreed Apr 23–24, 2026 window.",
+      "Closed contract Apr 24, 2026: $20.00 milestone plus $10.00 client bonus, $30.00 total, mutual 5.0 Upwork reviews. Handoff: dual-map QGIS build and sign-off export as agreed, with a smooth close from the client’s side in Kuwait.",
   },
   {
     id: "lake-huron-bathymetry-georgian-bay",
