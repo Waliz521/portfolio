@@ -42,6 +42,10 @@
 .clients-map {
   width: 100%;
   border-radius: inherit;
+  --clients-map-marker-pin: #0f5c4a;
+  --clients-map-marker-badge: #f0fdf9;
+  --clients-map-marker-stroke: #0d9488;
+  --clients-map-marker-person: #0f766e;
 }
 
 .clients-map__leaflet {
@@ -69,7 +73,22 @@
 
 .clients-map-marker-svg {
   display: block;
-  filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.28));
+  filter: drop-shadow(0 2px 5px rgba(15, 23, 42, 0.32));
+}
+
+.clients-map-marker__pin {
+  fill: var(--clients-map-marker-pin, #0f5c4a);
+}
+
+.clients-map-marker__badge {
+  fill: var(--clients-map-marker-badge, #f0fdf9);
+  stroke: var(--clients-map-marker-stroke, #0d9488);
+  stroke-width: 1.35;
+}
+
+.clients-map-marker__head,
+.clients-map-marker__shoulders {
+  fill: var(--clients-map-marker-person, #0f766e);
 }
 
 /* Plus Jakarta Sans (default site font from dark theme) — never Dune Rise inside map UI */
@@ -306,11 +325,17 @@
 }
 
 [data-theme="dune"] {
-  --clients-map-marker-stroke: #5c1803;
+  --clients-map-marker-pin: #7c2d12;
+  --clients-map-marker-badge: #fff7ed;
+  --clients-map-marker-stroke: #9a3412;
+  --clients-map-marker-person: #c2410c;
   --clients-map-marker-fill: #fb9f25;
 }
 
 [data-theme="dark"] {
-  --clients-map-marker-stroke: #0d9488;
+  --clients-map-marker-pin: #14532d;
+  --clients-map-marker-badge: #f0fdf4;
+  --clients-map-marker-stroke: #15803d;
+  --clients-map-marker-person: #166534;
   --clients-map-marker-fill: #5eead4;
 }

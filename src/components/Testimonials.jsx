@@ -1,20 +1,37 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { testimonials, upworkProfileUrl, getTestimonialsByCategory } from "../data/testimonials";
+import {
+  testimonials,
+  upworkProfileUrl,
+  getTestimonialsByCategory,
+  isFreelanceInProgress,
+} from "../data/testimonials";
 import { FaStar } from "react-icons/fa";
+
+const FREELANCE_STATUS_FILTERS = [
+  { id: "all", label: "All" },
+  { id: "completed", label: "Completed" },
+  { id: "in-progress", label: "In progress" },
+];
 
 export function Testimonials({
   limit,
   heading = "Client work & testimonials",
   eyebrow = "/ Freelance Projects",
   showViewAll = false,
+  showStatusFilter = false,
   category,
   excludeIds = [],
 }) {
+  const [statusFilter, setStatusFilter] = useState("all");
+
   let testimonialList = testimonials;
-  
+
   // Filter by category if provided
   if (category) {
-    testimonialList = getTestimonialsByCategory(category);
+    testimonialList = getTestimonialsByCategory(category, {
+      status: showStatusFilter && category === "freelance" ? statusFilter : "all",
+    });
   }
   
   // Exclude specific project IDs if provided
@@ -26,6 +43,16 @@ export function Testimonials({
   if (typeof limit === "number") {
     testimonialList = testimonialList.slice(0, limit);
   }
+
+  const freelanceStatusCounts =
+    showStatusFilter && category === "freelance"
+      ? FREELANCE_STATUS_FILTERS.reduce((counts, filter) => {
+          counts[filter.id] = getTestimonialsByCategory("freelance", {
+            status: filter.id,
+          }).length;
+          return counts;
+        }, {})
+      : null;
 
   const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, i) => (
@@ -44,6 +71,31 @@ export function Testimonials({
           <h2>{heading}</h2>
         </div>
 
+        {showStatusFilter && category === "freelance" && (
+          <div className="testimonials__status-filters" role="tablist" aria-label="Filter freelance projects by status">
+            {FREELANCE_STATUS_FILTERS.map((filter) => (
+              <button
+                key={filter.id}
+                type="button"
+                role="tab"
+                aria-selected={statusFilter === filter.id}
+                className={`testimonials__status-filter ${
+                  statusFilter === filter.id ? "testimonials__status-filter--active" : ""
+                }`}
+                onClick={() => setStatusFilter(filter.id)}
+              >
+                <span className="testimonials__status-filter-label">{filter.label}</span>
+                <span className="testimonials__status-filter-count">
+                  ({freelanceStatusCounts[filter.id]})
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {testimonialList.length === 0 ? (
+          <p className="testimonials__empty">No freelance projects match this filter.</p>
+        ) : (
         <div className="testimonials__grid">
           {testimonialList.map((testimonial, index) => (
             <Link
@@ -61,17 +113,22 @@ export function Testimonials({
                 <div className="testimonial-card__title-row">
                   <h3>{testimonial.title}</h3>
                   {testimonial.category !== "client-work" && (
-                    <button
-                      type="button"
-                      className="testimonial-card__platform"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        window.open(upworkProfileUrl, '_blank', 'noopener,noreferrer');
-                      }}
-                    >
-                      {testimonial.platform}
-                    </button>
+                    <div className="testimonial-card__title-actions">
+                      {isFreelanceInProgress(testimonial) && (
+                        <span className="testimonial-card__status-badge">In progress</span>
+                      )}
+                      <button
+                        type="button"
+                        className="testimonial-card__platform"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          e.preventDefault();
+                          window.open(upworkProfileUrl, '_blank', 'noopener,noreferrer');
+                        }}
+                      >
+                        {testimonial.platform}
+                      </button>
+                    </div>
                   )}
                 </div>
                 {testimonial.clientName && (
@@ -89,7 +146,9 @@ export function Testimonials({
                   {testimonial.rating ? (
                     <span className="testimonial-card__rating-value">{testimonial.rating}</span>
                   ) : (
-                    <span className="testimonial-card__rating-value" style={{ fontStyle: 'italic', opacity: 0.7 }}>Loading rating...</span>
+                    <span className="testimonial-card__rating-value testimonial-card__rating-value--pending">
+                      Pending review
+                    </span>
                   )}
                 </div>
               </div>
@@ -159,6 +218,7 @@ export function Testimonials({
             </Link>
           ))}
         </div>
+        )}
 
         {showViewAll && (
           <div className="testimonials__cta">

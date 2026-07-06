@@ -2,9 +2,9 @@
 export const upworkProfileUrl = "https://www.upwork.com/freelancers/~015f3845ea728cd7f0?mp_source=share";
 
 export const upworkStats = {
-  totalEarnings: "$2K+",
-  totalJobs: "9",
-  totalHours: "299",
+  totalEarnings: "$4K+",
+  totalJobs: "12",
+  totalHours: "399",
   jobSuccess: "100%",
   badges: ["Top Rated", "100% Job Success"],
 };
@@ -327,6 +327,122 @@ export const testimonials = [
       "Fixed-price engagement in progress (Mar 9, 2026 onwards); $20.00 earned to date. Client review and final rating will be updated when the contract closes. Source and demo are published for transparency (see links above).",
   },
   {
+    id: "tribes-capital-php-platform",
+    title: "Tribes Capital — PHP Web Platform Modification",
+    description:
+      "Laravel PHP updates across Tribes Capital member and admin apps: community dashboard surfacing, category navigation, engagement features, content-detail layouts aligned to design specs, media handling, and database migrations. Private fixed-price contract; client praised solution-oriented delivery and clear communication throughout.",
+    rating: 5.0,
+    dateRange: "May 7, 2026 - Jun 10, 2026",
+    amount: "$30.00",
+    paymentType: "fixed",
+    testimonial: "Zahak works brilliantly",
+    platform: "Upwork",
+    clientName: "Tribes Capital",
+    clientLocation: "Remote",
+    category: "freelance",
+    links: [
+      {
+        label: "Platform",
+        url: "https://www.tribes.capital",
+      },
+    ],
+    detailedDescription:
+      "Fixed-price enhancements to a Laravel-based member community platform and its paired admin application for Tribes Capital, a renewable-energy community product. Work spanned shared-database migrations, admin category and content tooling, member dashboard presentation of featured categories, sidebar navigation across system pages and dynamic categories, category engagement (comments, reactions, view counts), content-detail UI aligned to supplied design references, expanded media upload types with sensible size limits, and operational deploy notes. The Upwork job listing is private; public framing stays at platform-level scope without internal credentials or proprietary business data.",
+    technologies: [
+      "PHP",
+      "Laravel",
+      "Blade templates",
+      "MySQL migrations",
+      "Member & admin web apps",
+      "Community content management",
+    ],
+    challenges:
+      "Coordinating parallel member and admin codebases against one database, closing a long client QA sheet without regressions on login or registration flows, and matching Figma-aligned content-detail layouts while keeping uploads, previews, and sidebar navigation reliable across many dynamic categories.",
+    solutions:
+      "Implemented scoped migrations and mirrored changes in both apps, addressed dashboard flags, engagement persistence, preview-before-publish tokens, sidebar scroll layout fixes, and media validation with consistent file paths. Documented deploy and verification steps for the client team and closed the contract with mutual 5.0 Upwork reviews.",
+    results:
+      "Completed May 7–Jun 10, 2026 for $30.00 fixed price with a 5.0 client rating. Client endorsed Solution Oriented, Clear Communicator, and Detail Oriented; freelancer review noted a patient, requirements-clear client and a smooth contract from start to finish.",
+  },
+  {
+    id: "iinvest-nigeria-gateway",
+    title: "iInvest Map Web Platform",
+    description:
+      "Nigeria investment gateway: interactive state map with green, amber, and red opportunity status, territory modals, Invest and Raise capital marketing pages, Branch360-aligned nav, and responsive React nineteen TypeScript Vite delivery. Four-day fixed-price sprint; client praised exceptional speed and quality.",
+    rating: 5.0,
+    dateRange: "May 18, 2026 - May 21, 2026",
+    amount: "$30.00",
+    paymentType: "fixed",
+    testimonial:
+      "Zahak operates like a thousand man team because he delivers exceptionally well and promptly. We enjoy working with such professional and passionate talent. More projects lined up for him already.",
+    platform: "Upwork",
+    clientName: "Olatunde Adedoyin",
+    clientLocation: "Dartford, United Kingdom",
+    category: "freelance",
+    links: [
+      {
+        label: "Live demo",
+        url: "https://iinvest-nigeria-gateway.vercel.app",
+      },
+      {
+        label: "Source code",
+        url: "https://github.com/Waliz521/iinvest-nigeria-gateway",
+      },
+    ],
+    detailedDescription:
+      "Delivered a standalone static web application for iInvest Nigeria — an investment gateway forked from the client’s prior Nigeria impact-map pattern. Milestone one shipped the home map with sample territory data, status semantics (green active, amber limited, red none), territory click modals, and bottom Invest / Raise capital funnels. Milestone two added full Invest and Raise capital pages with FAQs, contact UI, and partner sections. Stack: React 19, TypeScript, Vite, Tailwind, Leaflet, Turf, Recharts, Radix; deployed on Vercel with an open GitHub repository.",
+    technologies: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Leaflet",
+      "@turf/turf",
+      "Recharts",
+      "Radix UI",
+      "Vercel",
+    ],
+    challenges:
+      "Turning spreadsheet and PDF source content into a cohesive three-page marketing experience while keeping map interactions legible on mobile and aligning filters, favicon, and branding with client feedback inside a very short fixed-price window.",
+    solutions:
+      "Reused the proven Branch360 map scaffold, imported territory data from client Excel sources, applied iterative client feedback on filter placement and map styling, and built Invest and Raise pages from structured content files with shared header, footer, and navigation across routes.",
+    results:
+      "Closed May 18–21, 2026 at $30.00 fixed price with mutual 5.0 Upwork reviews. Client endorsed Committed to Quality, Clear Communicator, Accountable for Outcomes, and Professional; indicated additional projects already lined up. Live demo and source published for handoff.",
+  },
+  {
+    id: "nt-community-infrastructure-gis",
+    title: "GIS Desktop Analyst — Remote Community Infrastructure Site Assessment (NT Australia)",
+    description:
+      "Desktop GIS site assessments for remote Northern Territory community infrastructure compounds: satellite imagery interpretation, compound area and inventory documentation, green amber red expansion feasibility, annotated overhead maps, and Word reports from a client template. Hourly Upwork contract; NDA-bound — no site identifiers published here.",
+    rating: null,
+    dateRange: "Jun 2, 2026 - Present",
+    amount: "$1,760.00",
+    paymentType: "hourly",
+    hourlyRate: "$20.00 /hr",
+    totalHours: "100 hours",
+    testimonial: "",
+    platform: "Upwork",
+    clientName: "Private client",
+    clientLocation: "Australia",
+    category: "freelance",
+    detailedDescription:
+      "Ongoing desktop GIS analyst engagement for approximately twenty-seven remote community power-infrastructure locations across Australia’s Northern Territory (trial tranche first, full scope on satisfactory quality, with potential extension). For each site: interpret satellite imagery of an existing infrastructure compound; measure compound boundaries; inventory buildings, generators, fuel storage, solar, fencing, and hardstand; assess available expansion area; rate expansion feasibility Green, Amber, or Red with brief justification; produce an annotated overhead image with boundary, north arrow, and scale bar; and complete a Word site-profile report using the client’s template. Work uses QGIS / ArcGIS-style desktop workflows, cadastre reference layers, and structured calculators for layout fit — without publishing coordinates, community names, or other NDA-protected deliverables on this portfolio.",
+    technologies: [
+      "QGIS / ArcGIS Pro (desktop GIS)",
+      "Satellite imagery interpretation",
+      "Cadastre & tenure research",
+      "KML map exports",
+      "Word report production",
+      "Infrastructure compound mapping",
+      "GREEN / AMBER / RED feasibility rating",
+    ],
+    challenges:
+      "Producing consistent, investment-grade reports across many remote sites with variable imagery quality, co-located compounds, tenure complexity, and tight per-site time targets while respecting confidentiality and a client template that must stay comparable site to site.",
+    solutions:
+      "Followed a documented end-to-end workflow: standardized polygon legend and map exports, Excel-backed fit calculators, NR Maps cadastre checks, ABS context where appropriate, and repeatable Word assembly. Prioritized trial-site quality for full-scope approval and maintained internal tooling for review without exposing protected location data publicly.",
+    results:
+      "Active hourly contract from Jun 2, 2026: $20.00/hr, 100 hours logged, $1,760.00 earned to date. Client review pending while work continues. Portfolio copy reflects only the public Upwork job overview — not NDA site lists, coordinates, or community-identifying deliverables.",
+  },
+  {
     id: "sudan-conflict-map",
     title: "Sudan Conflict Map",
     description:
@@ -419,9 +535,24 @@ function parseMoneyAmount(amount) {
   return Number.isFinite(n) ? n : null;
 }
 
+/** True when an Upwork contract is still open (date range ends with "Present"). */
+export function isFreelanceInProgress(testimonial) {
+  return Boolean(testimonial?.dateRange?.includes("Present"));
+}
+
 // Helper function to get testimonials by category
-export function getTestimonialsByCategory(category) {
-  const list = testimonials.filter((testimonial) => testimonial.category === category);
+export function getTestimonialsByCategory(category, options = {}) {
+  const { status = "all" } = options;
+  let list = testimonials.filter((testimonial) => testimonial.category === category);
+
+  if (category === "freelance" && status !== "all") {
+    list = list.filter((testimonial) =>
+      status === "in-progress"
+        ? isFreelanceInProgress(testimonial)
+        : !isFreelanceInProgress(testimonial)
+    );
+  }
+
   if (category === "freelance") {
     return [...list].sort((a, b) => {
       const na = parseMoneyAmount(a.amount);

@@ -367,6 +367,87 @@
   justify-content: center;
 }
 
+.testimonials__status-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: -0.5rem 0 2rem;
+}
+
+.testimonials__status-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.testimonials__status-filter:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(127, 200, 127, 0.45);
+  transform: translateY(-1px);
+}
+
+.testimonials__status-filter--active {
+  background: rgba(127, 200, 127, 0.18);
+  border-color: rgba(127, 200, 127, 0.55);
+  color: var(--color-highlight);
+  box-shadow: 0 6px 14px -10px rgba(127, 200, 127, 0.8);
+}
+
+.testimonials__status-filter-label {
+  font-weight: 600;
+}
+
+.testimonials__status-filter-count {
+  opacity: 0.75;
+  font-size: 0.92em;
+}
+
+.testimonials__empty {
+  margin: 0 0 2rem;
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-muted);
+  border: 1px dashed var(--color-border);
+  border-radius: 16px;
+}
+
+.testimonial-card__status-badge {
+  flex-shrink: 0;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  color: var(--color-highlight);
+  background: rgba(127, 200, 127, 0.12);
+  border: 1px solid rgba(127, 200, 127, 0.35);
+  white-space: nowrap;
+}
+
+.testimonial-card__title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.testimonial-card__title-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
 .testimonial-card {
   display: flex;
   flex-direction: column;
@@ -374,6 +455,8 @@
   padding: 2rem;
   border-radius: 24px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1;
+  height: 100%;
 }
 
 .testimonial-card__image {
@@ -407,16 +490,15 @@
   gap: 1rem;
 }
 
-.testimonial-card__title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
 .testimonial-card__title-row h3 {
   font-size: 1.25rem;
   font-weight: 600;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  min-height: calc(1.25rem * 1.35 * 3);
   color: var(--color-highlight);
   margin: 0;
   flex: 1;
@@ -562,13 +644,25 @@
   font-size: 1rem;
 }
 
+.testimonial-card__rating-value--pending {
+  font-style: italic;
+  opacity: 0.7;
+  font-weight: 500;
+}
+
 .testimonial-card__description {
   color: var(--color-subtle);
   line-height: 1.7;
+  flex-shrink: 0;
+  min-height: calc(1rem * 1.7 * 5);
 }
 
 .testimonial-card__description p {
   margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
 }
 
 .testimonial-card__details {
@@ -577,6 +671,8 @@
   gap: 1rem;
   padding-top: 1rem;
   border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+  min-height: 6rem;
 }
 
 .testimonial-card__detail-item {
@@ -610,7 +706,13 @@
   background: rgba(127, 200, 127, 0.08);
   border: 1px solid rgba(127, 200, 127, 0.2);
   border-radius: 16px;
-  margin-top: 0.5rem;
+  margin-top: auto;
+  flex-shrink: 0;
+  min-height: 6.5rem;
+}
+
+.testimonial-card:not(:has(.testimonial-card__feedback)) .testimonial-card__details {
+  margin-top: auto;
 }
 
 .testimonial-card__quote-icon {
@@ -631,6 +733,10 @@
   line-height: 1.7;
   margin: 0;
   padding-left: 1.5rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
 }
 
 .testimonial-card__quote--empty {
@@ -642,7 +748,9 @@
 .testimonial-card-link {
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   cursor: pointer;
 }
 

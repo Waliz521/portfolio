@@ -11,6 +11,7 @@ export const FREELANCE_LOCATION_COORDS = {
   "Weston Colville, United Kingdom": [52.142, 0.374],
   "Kuwait, Kuwait": [29.3759, 47.9774],
   "East London, South Africa": [-32.97, 27.86],
+  Australia: [-25.2744, 133.7751],
 };
 
 function projectAmountValue(amount) {

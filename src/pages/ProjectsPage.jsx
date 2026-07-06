@@ -50,6 +50,7 @@ export function ProjectsPage() {
                 heading="Freelance Projects"
                 eyebrow="/ Freelance Work"
                 showViewAll={false}
+                showStatusFilter
                 category="freelance"
               />
               <ClientsMapTeaser variant="projects" />

@@ -5,12 +5,13 @@ import { LatLngBounds, divIcon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { getFreelanceClientMapPoints } from "../data/freelanceClientMap";
 
-/** Inline SVG map pin — reads clearly on light gray basemaps (no ids: icon is reused per marker). */
+/** Person-in-pin marker — reads as a client/contact on the map (reused per marker). */
 const CLIENT_PIN_SVG = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 52" width="44" height="52" aria-hidden="true" class="clients-map-marker-svg">
-  <path fill="#115e59" d="M22 2C12.6 2 5 9.4 5 18.2c0 12.4 17 29.8 17 29.8s17-17.4 17-29.8C39 9.4 31.4 2 22 2z"/>
-  <circle cx="22" cy="18" r="7.5" fill="#f0fdfa" stroke="#0f766e" stroke-width="1.25"/>
-  <circle cx="22" cy="18" r="3" fill="#14b8a6"/>
+  <path class="clients-map-marker__pin" d="M22 1.5C11.8 1.5 3 10 3 19.2c0 11.5 16.2 28.5 18.5 31.2.4.5 1.1.5 1.5 0C25.3 47.7 41 30.7 41 19.2 41 10 32.2 1.5 22 1.5z"/>
+  <circle class="clients-map-marker__badge" cx="22" cy="19" r="10"/>
+  <circle class="clients-map-marker__head" cx="22" cy="16.2" r="3.25"/>
+  <path class="clients-map-marker__shoulders" d="M22 20.4c-4.35 0-6.75 2.25-6.75 5v.6h13.5v-.6c0-2.75-2.4-5-6.75-5z"/>
 </svg>
 `.trim();
 
