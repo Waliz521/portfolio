@@ -15,20 +15,20 @@ export function Skills() {
           <h2>Tools & capabilities</h2>
         </div>
 
-        <div className="skills__dune-layout">
-          {/* Core Competencies - Large flowing dune */}
-          <div className="skills__dune skills__dune--primary">
-            <div className="skills__dune-header">
-              <h3 className="skills__dune-title">Core Competencies</h3>
-              <div className="skills__dune-wave"></div>
+        <div className="skills__panel-layout">
+          {/* Core Competencies - Large panel */}
+          <div className="skills__panel skills__panel--primary">
+            <div className="skills__panel-header">
+              <h3 className="skills__panel-title">Core Competencies</h3>
+              <div className="skills__panel-wave"></div>
             </div>
-            <div className="skills__dune-content">
+            <div className="skills__panel-content">
               {coreCompetencies.map((comp, index) => (
-                <div key={comp.label} className="skills__dune-item" style={{ '--delay': `${index * 0.1}s` }}>
-                  <span className="skills__dune-label">{comp.label}</span>
-                  <div className="skills__dune-bar">
+                <div key={comp.label} className="skills__panel-item" style={{ '--delay': `${index * 0.1}s` }}>
+                  <span className="skills__panel-label">{comp.label}</span>
+                  <div className="skills__panel-bar">
                     <div 
-                      className="skills__dune-fill" 
+                      className="skills__panel-fill" 
                       style={{ width: comp.value }}
                     ></div>
                   </div>
@@ -37,21 +37,21 @@ export function Skills() {
             </div>
           </div>
 
-          {/* Specialist Stacks - Two smaller dunes */}
-          <div className="skills__dune-group">
+          {/* Specialist Stacks - Two stack panels */}
+          <div className="skills__panel-group">
             {enterpriseStack && (
-              <div className="skills__dune skills__dune--secondary">
-                <div className="skills__dune-header">
-                  <h3 className="skills__dune-title">{enterpriseStack.title}</h3>
-                  <div className="skills__dune-wave"></div>
+              <div className="skills__panel skills__panel--secondary">
+                <div className="skills__panel-header">
+                  <h3 className="skills__panel-title">{enterpriseStack.title}</h3>
+                  <div className="skills__panel-wave"></div>
                 </div>
-                <div className="skills__dune-content">
+                <div className="skills__panel-content">
                   {enterpriseStack.items.map((item, index) => (
-                    <div key={item.label} className="skills__dune-item" style={{ '--delay': `${index * 0.1}s` }}>
-                      <span className="skills__dune-label">{item.label}</span>
-                      <div className="skills__dune-bar">
+                    <div key={item.label} className="skills__panel-item" style={{ '--delay': `${index * 0.1}s` }}>
+                      <span className="skills__panel-label">{item.label}</span>
+                      <div className="skills__panel-bar">
                         <div 
-                          className="skills__dune-fill" 
+                          className="skills__panel-fill" 
                           style={{ width: item.value }}
                         ></div>
                       </div>
@@ -62,18 +62,18 @@ export function Skills() {
             )}
 
             {webGISStack && (
-              <div className="skills__dune skills__dune--secondary">
-                <div className="skills__dune-header">
-                  <h3 className="skills__dune-title">{webGISStack.title}</h3>
-                  <div className="skills__dune-wave"></div>
+              <div className="skills__panel skills__panel--secondary">
+                <div className="skills__panel-header">
+                  <h3 className="skills__panel-title">{webGISStack.title}</h3>
+                  <div className="skills__panel-wave"></div>
                 </div>
-                <div className="skills__dune-content">
+                <div className="skills__panel-content">
                   {webGISStack.items.map((item, index) => (
-                    <div key={item.label} className="skills__dune-item" style={{ '--delay': `${index * 0.1}s` }}>
-                      <span className="skills__dune-label">{item.label}</span>
-                      <div className="skills__dune-bar">
+                    <div key={item.label} className="skills__panel-item" style={{ '--delay': `${index * 0.1}s` }}>
+                      <span className="skills__panel-label">{item.label}</span>
+                      <div className="skills__panel-bar">
                         <div 
-                          className="skills__dune-fill" 
+                          className="skills__panel-fill" 
                           style={{ width: item.value }}
                         ></div>
                       </div>
@@ -85,16 +85,16 @@ export function Skills() {
           </div>
 
           {/* Tools & Technologies - Flowing sand chips */}
-          <div className="skills__dune skills__dune--tools">
-            <div className="skills__dune-header">
-              <h3 className="skills__dune-title">Tools & Technologies</h3>
-              <div className="skills__dune-wave"></div>
+          <div className="skills__panel skills__panel--tools">
+            <div className="skills__panel-header">
+              <h3 className="skills__panel-title">Tools & Technologies</h3>
+              <div className="skills__panel-wave"></div>
             </div>
-            <div className="skills__dune-chips">
+            <div className="skills__panel-chips">
               {tools.map((tool, index) => (
                 <span 
                   key={tool} 
-                  className="skills__dune-chip"
+                  className="skills__panel-chip"
                   style={{ '--delay': `${index * 0.05}s` }}
                 >
                   {tool}

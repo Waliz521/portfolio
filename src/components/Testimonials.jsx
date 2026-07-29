@@ -20,6 +20,7 @@ export function Testimonials({
   eyebrow = "/ Freelance Projects",
   showViewAll = false,
   showStatusFilter = false,
+  variant = "full",
   category,
   excludeIds = [],
 }) {
@@ -39,10 +40,29 @@ export function Testimonials({
     testimonialList = testimonialList.filter((testimonial) => !excludeIds.includes(testimonial.id));
   }
   
-  // Apply limit if provided
+  if (variant === "marquee" && category === "freelance") {
+    testimonialList = testimonialList.filter(
+      (t) => typeof t.testimonial === "string" && t.testimonial.trim().length > 0
+    );
+  } else if (variant === "spotlight" && category === "freelance") {
+    testimonialList = [...testimonialList].sort((a, b) => {
+      const weight = (t) =>
+        (t.testimonial ? 4 : 0) + (t.rating ? 2 : 0) + (isFreelanceInProgress(t) ? 0 : 1);
+      return weight(b) - weight(a);
+    });
+  }
+
   if (typeof limit === "number") {
     testimonialList = testimonialList.slice(0, limit);
   }
+
+  const isSpotlight = variant === "spotlight";
+  const isMarquee = variant === "marquee";
+  const marqueeItems =
+    isMarquee && testimonialList.length > 0
+      ? [...testimonialList, ...testimonialList]
+      : testimonialList;
+  const marqueeDuration = Math.max(28, testimonialList.length * 9);
 
   const freelanceStatusCounts =
     showStatusFilter && category === "freelance"
@@ -63,8 +83,47 @@ export function Testimonials({
     ));
   };
 
+  const renderSpotlightCard = (testimonial, keySuffix = "") => (
+    <Link
+      key={`${testimonial.id}${keySuffix}`}
+      to={`/project/${testimonial.id}`}
+      className="testimonial-spotlight-link"
+    >
+      <article className="testimonial-spotlight glass-panel">
+        {testimonial.testimonial ? (
+          <blockquote className="testimonial-spotlight__quote">
+            &ldquo;{testimonial.testimonial}&rdquo;
+          </blockquote>
+        ) : isFreelanceInProgress(testimonial) ? (
+          <p className="testimonial-spotlight__in-progress">Active Upwork contract</p>
+        ) : (
+          <p className="testimonial-spotlight__in-progress">Review pending</p>
+        )}
+
+        <footer className="testimonial-spotlight__footer">
+          <h3 className="testimonial-spotlight__title">{testimonial.title}</h3>
+          <div className="testimonial-spotlight__rating">
+            <div className="testimonial-spotlight__stars">
+              {testimonial.rating ? renderStars(testimonial.rating) : renderStars(0)}
+            </div>
+            {testimonial.rating ? (
+              <span className="testimonial-spotlight__rating-value">{testimonial.rating}</span>
+            ) : (
+              <span className="testimonial-spotlight__rating-value testimonial-spotlight__rating-value--pending">
+                Pending review
+              </span>
+            )}
+          </div>
+        </footer>
+      </article>
+    </Link>
+  );
+
   return (
-    <section id="testimonials" className="section testimonials">
+    <section
+      id="testimonials"
+      className={`section testimonials${isMarquee ? " testimonials--marquee" : ""}`}
+    >
       <div className="site-wrapper">
         <div className="section__heading">
           <p className="section__eyebrow">{eyebrow}</p>
@@ -94,7 +153,13 @@ export function Testimonials({
         )}
 
         {testimonialList.length === 0 ? (
-          <p className="testimonials__empty">No freelance projects match this filter.</p>
+          <p className="testimonials__empty">
+            {isMarquee ? "No client reviews to show yet." : "No freelance projects match this filter."}
+          </p>
+        ) : isMarquee ? null : isSpotlight ? (
+        <div className="testimonials__spotlight-grid">
+          {testimonialList.map((testimonial) => renderSpotlightCard(testimonial))}
+        </div>
         ) : (
         <div className="testimonials__grid">
           {testimonialList.map((testimonial, index) => (
@@ -220,7 +285,7 @@ export function Testimonials({
         </div>
         )}
 
-        {showViewAll && (
+        {!isMarquee && showViewAll && (
           <div className="testimonials__cta">
             <Link className="btn btn--ghost" to="/projects">
               {category === "client-work" ? "View all client work" : "View all freelance projects"}
@@ -228,6 +293,31 @@ export function Testimonials({
           </div>
         )}
       </div>
+
+      {testimonialList.length > 0 && isMarquee && (
+        <div
+          className="testimonials-marquee"
+          style={{ "--marquee-duration": `${marqueeDuration}s` }}
+          role="region"
+          aria-label="Client reviews"
+        >
+          <div className="testimonials-marquee__track">
+            {marqueeItems.map((testimonial, index) =>
+              renderSpotlightCard(testimonial, `-marquee-${index}`)
+            )}
+          </div>
+        </div>
+      )}
+
+      {isMarquee && showViewAll && (
+        <div className="site-wrapper">
+          <div className="testimonials__cta">
+            <Link className="btn btn--ghost" to="/projects">
+              View all freelance projects
+            </Link>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

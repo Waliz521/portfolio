@@ -79,14 +79,14 @@
   position: relative;
 }
 
-.skills__dune-layout {
+.skills__panel-layout {
   display: flex;
   flex-direction: column;
   gap: 3rem;
 }
 
-/* Dune Card Base */
-.skills__dune {
+/* Skill panel cards */
+.skills__panel {
   position: relative;
   padding: 2.5rem;
   border-radius: 24px;
@@ -97,12 +97,12 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.skills__dune:hover {
+.skills__panel:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
 }
 
-.skills__dune::before {
+.skills__panel::before {
   content: "";
   position: absolute;
   top: 0;
@@ -119,8 +119,8 @@
   opacity: 0.6;
 }
 
-/* Dune Wave Pattern */
-.skills__dune-wave {
+/* Decorative wave edge */
+.skills__panel-wave {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -155,14 +155,14 @@
   pointer-events: none;
 }
 
-.skills__dune-header {
+.skills__panel-header {
   position: relative;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--color-border);
 }
 
-.skills__dune-title {
+.skills__panel-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-text);
@@ -171,7 +171,7 @@
   z-index: 1;
 }
 
-.skills__dune-content {
+.skills__panel-content {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -179,16 +179,16 @@
   z-index: 1;
 }
 
-.skills__dune-item {
+.skills__panel-item {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   opacity: 0;
-  animation: duneFadeIn 0.6s ease forwards;
+  animation: skillFadeIn 0.6s ease forwards;
   animation-delay: var(--delay, 0s);
 }
 
-@keyframes duneFadeIn {
+@keyframes skillFadeIn {
   from {
     opacity: 0;
     transform: translateY(10px);
@@ -199,13 +199,13 @@
   }
 }
 
-.skills__dune-label {
+.skills__panel-label {
   font-size: 1rem;
   font-weight: 600;
   color: var(--color-text);
 }
 
-.skills__dune-bar {
+.skills__panel-bar {
   position: relative;
   height: 10px;
   border-radius: 999px;
@@ -214,7 +214,7 @@
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.skills__dune-fill {
+.skills__panel-fill {
   position: absolute;
   top: 0;
   left: 0;
@@ -227,42 +227,42 @@
   );
   box-shadow: 0 0 12px rgba(254, 220, 76, 0.4);
   transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: duneFill 1.2s ease forwards;
+  animation: skillFill 1.2s ease forwards;
 }
 
-@keyframes duneFill {
+@keyframes skillFill {
   from {
     width: 0;
   }
 }
 
 /* Dune Groups */
-.skills__dune-group {
+.skills__panel-group {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 
-.skills__dune--primary {
+.skills__panel--primary {
   background: linear-gradient(135deg, 
     var(--color-surface) 0%,
     var(--color-surface-alt) 100%
   );
 }
 
-.skills__dune--secondary {
+.skills__panel--secondary {
   background: var(--color-surface);
 }
 
 /* Tools Section */
-.skills__dune--tools {
+.skills__panel--tools {
   background: linear-gradient(135deg, 
     var(--color-surface-alt) 0%,
     var(--color-surface) 100%
   );
 }
 
-.skills__dune-chips {
+.skills__panel-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
@@ -270,7 +270,7 @@
   z-index: 1;
 }
 
-.skills__dune-chip {
+.skills__panel-chip {
   padding: 0.6rem 1.2rem;
   border-radius: 20px;
   border: 1px solid var(--color-border);
@@ -280,12 +280,12 @@
   font-weight: 500;
   transition: all 0.3s ease;
   opacity: 0;
-  animation: duneChipAppear 0.5s ease forwards;
+  animation: skillChipAppear 0.5s ease forwards;
   animation-delay: var(--delay, 0s);
   backdrop-filter: blur(10px);
 }
 
-@keyframes duneChipAppear {
+@keyframes skillChipAppear {
   from {
     opacity: 0;
     transform: scale(0.8) translateY(10px);
@@ -296,7 +296,7 @@
   }
 }
 
-.skills__dune-chip:hover {
+.skills__panel-chip:hover {
   transform: translateY(-2px);
   border-color: var(--color-highlight);
   background: rgba(254, 220, 76, 0.1);
@@ -367,6 +367,181 @@
   justify-content: center;
 }
 
+/* Homepage — quote-first spotlight cards */
+.testimonials__spotlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.testimonial-spotlight-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  height: 100%;
+}
+
+.testimonial-spotlight {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem 1.65rem;
+  flex: 1;
+  border-left: 3px solid var(--color-accent);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.testimonial-spotlight-link:hover .testimonial-spotlight {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+}
+
+.testimonial-spotlight__quote {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--color-text);
+}
+
+.testimonial-spotlight__in-progress {
+  margin: 0;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--color-muted);
+}
+
+.testimonial-spotlight__footer {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.testimonial-spotlight__title {
+  margin: 0 0 0.65rem;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--color-highlight);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.testimonial-spotlight__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.testimonial-spotlight__stars {
+  display: flex;
+  gap: 0.15rem;
+}
+
+.testimonial-spotlight__stars .testimonial-card__star {
+  font-size: 0.85rem;
+}
+
+.testimonial-spotlight__rating-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-subtle);
+}
+
+.testimonial-spotlight__rating-value--pending {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+@media (min-width: 960px) {
+  .testimonials__spotlight-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Auto-scrolling review marquee (homepage) — fade aligned to .site-wrapper */
+.testimonials--marquee {
+  overflow: hidden;
+}
+
+.testimonials-marquee {
+  --marquee-duration: 36s;
+  --marquee-fade-left: 3.5rem;
+  --marquee-fade-right: 2.25rem;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 0.25rem 0 0.5rem;
+  /* Visible band matches .site-wrapper; right margin stays clear until content edge */
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent calc(var(--site-content-inset) - var(--marquee-fade-left)),
+    #000 var(--site-content-inset),
+    #000 calc(100% - var(--site-content-inset) - var(--marquee-fade-right)),
+    transparent calc(100% - var(--site-content-inset))
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent calc(var(--site-content-inset) - var(--marquee-fade-left)),
+    #000 var(--site-content-inset),
+    #000 calc(100% - var(--site-content-inset) - var(--marquee-fade-right)),
+    transparent calc(100% - var(--site-content-inset))
+  );
+}
+
+.testimonials-marquee__track {
+  display: flex;
+  align-items: stretch;
+  gap: 1.25rem;
+  width: max-content;
+  padding: 0.35rem var(--site-content-inset);
+  animation: testimonials-marquee-scroll var(--marquee-duration) linear infinite;
+}
+
+.testimonials-marquee:hover .testimonials-marquee__track {
+  animation-play-state: paused;
+}
+
+.testimonial-spotlight-link {
+  flex: 0 0 auto;
+  width: min(340px, 82vw);
+}
+
+@keyframes testimonials-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-marquee__track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    padding-inline: var(--site-content-inset);
+  }
+
+  .testimonials-marquee {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .testimonial-spotlight-link {
+    width: min(340px, 100%);
+  }
+}
+
 .testimonials__status-filters {
   display: flex;
   flex-wrap: wrap;
@@ -391,15 +566,15 @@
 
 .testimonials__status-filter:hover {
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(127, 200, 127, 0.45);
+  border-color: var(--color-primary-strong);
   transform: translateY(-1px);
 }
 
 .testimonials__status-filter--active {
-  background: rgba(127, 200, 127, 0.18);
-  border-color: rgba(127, 200, 127, 0.55);
+  background: var(--color-primary-muted);
+  border-color: var(--color-primary-strong);
   color: var(--color-highlight);
-  box-shadow: 0 6px 14px -10px rgba(127, 200, 127, 0.8);
+  box-shadow: 0 6px 14px -10px var(--color-primary-strong);
 }
 
 .testimonials__status-filter-label {
@@ -429,8 +604,8 @@
   padding: 0.2rem 0.55rem;
   border-radius: 999px;
   color: var(--color-highlight);
-  background: rgba(127, 200, 127, 0.12);
-  border: 1px solid rgba(127, 200, 127, 0.35);
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-primary-strong);
   white-space: nowrap;
 }
 
@@ -481,7 +656,7 @@
 
 .testimonial-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px -20px rgba(60, 120, 60, 0.5);
+  box-shadow: 0 20px 40px -20px rgba(2, 6, 23, 0.45);
 }
 
 .testimonial-card__header {
@@ -511,8 +686,8 @@
   color: var(--color-muted);
   padding: 0.25rem 0.75rem;
   border-radius: 999px;
-  background: rgba(127, 200, 127, 0.1);
-  border: 1px solid rgba(127, 200, 127, 0.2);
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-primary-muted);
   white-space: nowrap;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -524,8 +699,8 @@
 }
 
 .testimonial-card__platform:hover {
-  background: rgba(127, 200, 127, 0.2);
-  border-color: rgba(127, 200, 127, 0.4);
+  background: var(--color-primary-muted);
+  border-color: var(--color-primary-strong);
   color: var(--color-highlight);
   transform: translateY(-1px);
 }
@@ -551,8 +726,8 @@
   font-size: 0.7rem;
   padding: 0.25rem 0.6rem;
   border-radius: 999px;
-  background: rgba(127, 200, 127, 0.15);
-  border: 1px solid rgba(127, 200, 127, 0.3);
+  background: var(--color-primary-muted);
+  border: 1px solid var(--color-primary-strong);
   color: var(--color-highlight);
   font-weight: 600;
   white-space: nowrap;
@@ -703,8 +878,8 @@
 .testimonial-card__feedback {
   position: relative;
   padding: 1.5rem;
-  background: rgba(127, 200, 127, 0.08);
-  border: 1px solid rgba(127, 200, 127, 0.2);
+  background: var(--color-primary-soft);
+  border: 1px solid var(--color-primary-muted);
   border-radius: 16px;
   margin-top: auto;
   flex-shrink: 0;
@@ -756,29 +931,29 @@
 
 .testimonial-card-link:hover .testimonial-card {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px -20px rgba(60, 120, 60, 0.5);
+  box-shadow: 0 20px 40px -20px rgba(2, 6, 23, 0.45);
 }
 
 /* Mobile Responsive */
 @media (max-width: 720px) {
-  .skills__dune-layout {
+  .skills__panel-layout {
     gap: 2rem;
   }
 
-  .skills__dune {
+  .skills__panel {
     padding: 2rem 1.5rem;
   }
 
-  .skills__dune-title {
+  .skills__panel-title {
     font-size: 1.25rem;
   }
 
-  .skills__dune-group {
+  .skills__panel-group {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .skills__dune-chip {
+  .skills__panel-chip {
     font-size: 0.85rem;
     padding: 0.5rem 1rem;
   }

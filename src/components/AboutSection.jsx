@@ -1,40 +1,66 @@
 import { personalInfo } from "../data/personal";
-import { AnimatedTitle } from "./AnimatedTitle";
-import { FaMapMarkerAlt, FaCircle } from "react-icons/fa";
+
+function AboutPhoto() {
+  if (personalInfo.aboutPhoto) {
+    return (
+      <img
+        src={personalInfo.aboutPhoto}
+        alt={`Portrait of ${personalInfo.name}`}
+        className="about__photo-img"
+        loading="lazy"
+      />
+    );
+  }
+
+  const initials = personalInfo.name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+
+  return (
+    <div className="about__photo-placeholder" aria-hidden="true">
+      <span>{initials}</span>
+    </div>
+  );
+}
 
 export function AboutSection() {
+  const { about } = personalInfo;
+
   return (
     <section id="about" className="about-section section">
       <div className="site-wrapper">
-        <div className="section__heading">
-          <div className="section__eyebrow">About</div>
-          <h2>
-            <AnimatedTitle text="WEBGIS Developer and Geospatial Analyst" />
-          </h2>
+        <div className="about__header">
+          <h2 className="about__label">/ about me</h2>
+          <span className="about__header-line" aria-hidden="true" />
         </div>
-        <div className="about__content">
-          <div className="about__text">
-            <p className="about__intro">{personalInfo.intro}</p>
-            <div className="about__details">
-              <div className="about__detail-item">
-                <h3>Location</h3>
-                <p>
-                  {personalInfo.location}
-                  <FaMapMarkerAlt className="about__icon" />
-                </p>
-              </div>
-              <div className="about__detail-item">
-                <h3>Status</h3>
-                <p>
-                  {personalInfo.availability}
-                  <FaCircle className="about__icon about__icon--status" />
-                </p>
-              </div>
-            </div>
+
+        <div className="about__grid">
+          <div className="about__main">
+            <p className="about__paragraph">
+              I am currently a <strong>{about.currentRole}</strong> at{" "}
+              <span className="about__highlight">{about.currentCompany}</span>, {about.currentDetail}{" "}
+              {about.previousLine}
+            </p>
+
+            <p className="about__tech-intro">{about.techIntro}</p>
+
+            <ul className="about__tech-grid">
+              {about.technologies.flat().map((tech) => (
+                <li key={tech}>{tech}</li>
+              ))}
+            </ul>
+
+            <p className="about__paragraph about__paragraph--last">{about.personalNote}</p>
           </div>
+
+          <figure className="about__photo-wrap">
+            <AboutPhoto />
+          </figure>
         </div>
       </div>
     </section>
   );
 }
-

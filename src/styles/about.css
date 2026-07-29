@@ -1,79 +1,166 @@
-/* About Section Styles */
+/* About — reference-style / about me block */
 
 .about-section {
-  padding: calc(6rem + var(--header-height)) 0 0;
-  min-height: calc(100vh - var(--header-height));
+  padding: 3.5rem 0 1rem;
+}
+
+.about__header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: transparent;
-  position: relative;
+  gap: 1.25rem;
+  margin-bottom: 2.25rem;
 }
 
-.about-section .site-wrapper {
-  width: 100%;
+.about__label {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.about__header-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--color-border-strong) 0%,
+    var(--color-border) 55%,
+    transparent 100%
+  );
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.about__main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 1.35rem;
+  max-width: 40rem;
 }
 
-.about__content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.about__intro {
-  font-size: 1.15rem;
+.about__paragraph {
+  margin: 0;
+  font-size: clamp(0.98rem, 1.5vw, 1.05rem);
   line-height: 1.8;
+  color: var(--color-subtle);
+}
+
+.about__paragraph strong {
   color: var(--color-text);
-  margin-bottom: 3rem;
+  font-weight: 700;
 }
 
-.about__details {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2.5rem;
-  margin-top: 2rem;
-}
-
-.about__detail-item h3 {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--color-muted);
-  margin-bottom: 0.5rem;
+.about__highlight {
+  color: var(--color-accent);
   font-weight: 600;
 }
 
-.about__detail-item p {
-  font-size: 1.05rem;
-  color: var(--color-text);
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.about__tech-intro {
+  margin: 0.35rem 0 0;
+  font-size: clamp(0.98rem, 1.5vw, 1.05rem);
+  line-height: 1.7;
+  color: var(--color-subtle);
 }
 
-.about__icon {
-  font-size: 0.9rem;
-  color: var(--color-primary);
-  flex-shrink: 0;
+.about__tech-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.about__icon--status {
+.about__tech-grid li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+.about__tech-grid li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.about__paragraph--last {
+  margin-top: 0.35rem;
+}
+
+.about__photo-wrap {
+  margin: 0;
+  width: 100%;
+  max-width: 300px;
+  justify-self: end;
+}
+
+.about__photo-img,
+.about__photo-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
+}
+
+.about__photo-placeholder {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 254, 249, 0.98) 0%,
+    rgba(237, 241, 232, 0.95) 100%
+  );
+}
+
+.about__photo-placeholder span {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   color: var(--color-highlight);
-  font-size: 0.6rem;
+  opacity: 0.85;
 }
 
-/* Mobile Responsive */
-@media (max-width: 960px) {
-  .about-section {
-    padding: calc(4rem + var(--header-height)) 0 0;
-    min-height: calc(100vh - var(--header-height));
+@media (max-width: 860px) {
+  .about__grid {
+    grid-template-columns: 1fr;
   }
 
-  .about__intro {
-    font-size: 1rem;
+  .about__photo-wrap {
+    order: -1;
+    max-width: 240px;
+    justify-self: start;
+  }
+
+  .about__main {
+    max-width: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .about__tech-grid {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .about__photo-wrap {
+    max-width: 200px;
   }
 }

@@ -12,11 +12,7 @@ html {
 
 body {
   min-height: 100vh;
-  background: #1a2a1a;
-  background-image: 
-    radial-gradient(ellipse 100% 100% at 50% 0%, rgba(80, 140, 80, 0.25) 0%, rgba(70, 130, 70, 0.15) 50%, transparent 100%);
   line-height: 1.7;
-  transition: background 0.3s ease, background-image 0.3s ease;
 }
 
 main {
@@ -48,9 +44,19 @@ section {
 }
 
 .site-wrapper {
-  max-width: 1200px;
+  max-width: var(--site-max-width, 1200px);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--site-padding, 1.5rem);
+}
+
+:root {
+  --site-max-width: 1200px;
+  --site-padding: 1.5rem;
+  /* Matches .site-wrapper content left/right edge */
+  --site-content-inset: max(
+    var(--site-padding),
+    calc((100vw - var(--site-max-width)) / 2 + var(--site-padding))
+  );
 }
 
 .btn {
@@ -71,13 +77,13 @@ section {
 }
 
 .btn--primary {
-  background: linear-gradient(130deg, var(--color-primary), var(--color-highlight));
-  color: #061020;
-  box-shadow: 0 16px 24px -18px rgba(62, 214, 255, 0.65);
+  background: var(--gradient-accent);
+  color: var(--color-on-primary);
+  box-shadow: var(--shadow-glow);
 }
 
 .btn--primary:hover {
-  box-shadow: 0 22px 38px -16px rgba(62, 214, 255, 0.85);
+  box-shadow: 0 0 48px -8px rgba(95, 111, 82, 0.35);
 }
 
 .btn--ghost {

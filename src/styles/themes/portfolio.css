@@ -1,0 +1,119 @@
+/**
+ * Portfolio theme — old money light.
+ * Ivory & beige base, muted olive/sage accents, refined and understated.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap");
+
+:root {
+  color-scheme: light;
+
+  /* Old money — ivory, beige, olive */
+  --color-background: #f6f4ee;
+  --color-background-elevated: #fffef9;
+  --color-surface: rgba(255, 254, 249, 0.94);
+  --color-surface-alt: rgba(250, 248, 242, 0.97);
+  --color-border: rgba(74, 86, 64, 0.14);
+  --color-border-strong: rgba(95, 111, 82, 0.32);
+
+  --color-primary: #5f6f52;
+  --color-highlight: #4a5640;
+  --color-accent: #7a8b6a;
+  --color-gold: #9a8f6e;
+  --color-text: #2e2c28;
+  --color-subtle: #5c5a54;
+  --color-muted: #7a776f;
+
+  --color-primary-soft: rgba(95, 111, 82, 0.11);
+  --color-primary-muted: rgba(95, 111, 82, 0.17);
+  --color-primary-strong: rgba(74, 86, 64, 0.24);
+  --color-on-primary: #fffef7;
+
+  --gradient-accent: linear-gradient(135deg, #4a5640 0%, #5f6f52 48%, #6d7d5e 100%);
+  --gradient-surface: linear-gradient(
+    145deg,
+    rgba(255, 254, 249, 0.99) 0%,
+    rgba(248, 246, 240, 0.96) 100%
+  );
+  --gradient-body:
+    radial-gradient(ellipse 110% 75% at 50% -15%, rgba(122, 139, 106, 0.1) 0%, transparent 52%),
+    radial-gradient(ellipse 50% 40% at 95% 5%, rgba(154, 143, 110, 0.06) 0%, transparent 48%),
+    linear-gradient(180deg, #fffef9 0%, #f6f4ee 42%, #efece4 100%);
+
+  --shadow-soft: 0 20px 40px -24px rgba(46, 44, 40, 0.09);
+  --shadow-card: 0 14px 28px -18px rgba(46, 44, 40, 0.08);
+  --shadow-glow: 0 8px 22px -8px rgba(95, 111, 82, 0.28);
+
+  --header-height: 54px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+body {
+  background: var(--color-background);
+  background-image: var(--gradient-body);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+  background-image:
+    linear-gradient(rgba(95, 111, 82, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(95, 111, 82, 0.09) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 28%, black 12%, transparent 76%);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.section h2 {
+  font-family: "Cormorant Garamond", "Plus Jakarta Sans", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-highlight);
+}
+
+.section__eyebrow {
+  color: var(--color-gold);
+  letter-spacing: 0.22em;
+  font-weight: 600;
+}
+
+.btn--primary {
+  background: var(--gradient-accent);
+  color: var(--color-on-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn--primary:hover {
+  box-shadow: 0 12px 26px -8px rgba(95, 111, 82, 0.38);
+}
+
+.btn--ghost {
+  background: rgba(255, 254, 249, 0.75);
+}
+
+.btn--ghost:hover {
+  background: rgba(255, 254, 249, 0.98);
+  border-color: var(--color-border-strong);
+}
+
+.glass-panel {
+  background: var(--gradient-surface);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(10px);
+}

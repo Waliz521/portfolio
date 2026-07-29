@@ -17,9 +17,9 @@ export function HomePage() {
       />
       <Testimonials
         eyebrow="/ Freelance Work"
-        heading="Freelance projects & testimonials"
+        heading="What clients say"
         category="freelance"
-        limit={2}
+        variant="marquee"
         showViewAll={true}
       />
       <CallToAction />

@@ -26,7 +26,7 @@
   position: relative;
   width: 100%;
   max-width: calc(100vw - 2rem);
-  /* Tight metrics for Plus Jakarta (Earth); Dune bumps size in dune.css */
+  /* Compact bar height for floating nav pill */
   min-height: 0;
   height: auto;
   display: flex;
@@ -47,12 +47,12 @@
 
 .site-header__pill--scrolled {
   border-radius: 9999px;
-  background-color: var(--color-background) !important;
+  background-color: rgba(255, 255, 255, 0.92) !important;
   border: 1px solid var(--color-border);
-  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  opacity: 0.95;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0.98;
 }
 
 @media (min-width: 961px) {
@@ -159,36 +159,36 @@
 
 /* Selected state: primary-tinted pill */
 .nav-pill__link--selected {
-  background: rgba(127, 200, 127, 0.25);
+  background: var(--color-primary-muted);
   color: var(--color-highlight);
-  border: 1px solid rgba(127, 200, 127, 0.35);
+  border: 1px solid var(--color-primary-strong);
 }
 
 .nav-pill__link--selected:hover {
-  background: rgba(127, 200, 127, 0.35);
+  background: var(--color-primary-strong);
   color: var(--color-highlight);
 }
 
 .site-header__pill:not(.site-header__pill--scrolled) .nav-pill__link--selected {
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--color-primary-soft);
   color: var(--color-highlight);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--color-primary-strong);
 }
 
 /* CTA state (e.g. Contact): primary pill */
 .nav-pill__link--cta {
   background: var(--color-primary);
-  color: #0a180a;
+  color: var(--color-on-primary);
 }
 
 .nav-pill__link--cta:hover {
   background: var(--color-highlight);
-  color: #0a180a;
+  color: var(--color-on-primary);
 }
 
 .site-header__pill:not(.site-header__pill--scrolled) .nav-pill__link--cta {
   background: var(--color-primary);
-  color: #0a180a;
+  color: var(--color-on-primary);
 }
 
 /* Nav actions: search, theme toggle, resume */
@@ -233,8 +233,8 @@
 .nav__resume {
   padding: 0.28rem 0.75rem;
   border-radius: 9999px;
-  border: 1px solid var(--color-border);
-  background: rgba(127, 200, 127, 0.1);
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-primary-soft);
   color: var(--color-primary);
   font-size: 0.75rem;
   font-weight: 700;
@@ -244,7 +244,7 @@
 }
 
 .nav__resume:hover {
-  background: rgba(127, 200, 127, 0.2);
+  background: var(--color-primary-muted);
   border-color: var(--color-primary);
   color: var(--color-highlight);
 }
