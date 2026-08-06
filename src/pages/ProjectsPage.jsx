@@ -1,9 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Projects } from "../components/Projects";
 import { Testimonials } from "../components/Testimonials";
 import { projects } from "../data/projects";
 import { getTestimonialsByCategory } from "../data/testimonials";
-import { ClientsMapTeaser } from "../components/ClientsMapTeaser";
 
 export function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState("freelance");
@@ -53,7 +53,9 @@ export function ProjectsPage() {
                 showStatusFilter
                 category="freelance"
               />
-              <ClientsMapTeaser variant="projects" />
+              <p className="clients-map-inline-link">
+                <Link to="/clients">View client locations map →</Link>
+              </p>
             </>
           )}
 

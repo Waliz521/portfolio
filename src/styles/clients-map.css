@@ -1,13 +1,12 @@
 /* --- Client map page & Leaflet --- */
 .clients-map-page {
-  padding: calc(2rem + var(--header-height)) 0 4rem;
-  min-height: calc(100vh - var(--header-height));
+  padding: calc(1.25rem + var(--header-height)) 0 2.5rem;
 }
 
 .clients-map-page__inner {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 1.25rem;
   max-width: 100%;
 }
 
@@ -17,31 +16,49 @@
 
 .clients-map-page__lead {
   max-width: 42rem;
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
   color: var(--color-text);
   opacity: 0.92;
-  line-height: 1.55;
+  line-height: 1.5;
+  font-size: 0.98rem;
 }
 
 .clients-map-page__back {
-  margin-top: 1.25rem;
+  margin-top: 0.85rem;
   align-self: flex-start;
 }
 
-/* Same horizontal rhythm as the rest of the site (site-wrapper padding); tall enough for Leaflet */
+.clients-map-page__map-wrap {
+  width: min(780px, 100%);
+  margin-inline: auto;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  background: var(--color-surface);
+}
+
+/* Sized to fit header + map in one viewport without scrolling */
 .clients-map-page__map {
-  --clients-map-height: clamp(520px, 76vh, 900px);
+  --clients-map-height: min(480px, calc(100vh - var(--header-height) - 13.5rem));
   width: 100%;
   height: var(--clients-map-height);
-  min-height: var(--clients-map-height);
+  min-height: 320px;
   padding: 0;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 28px;
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+  border: none;
+  box-shadow: none;
+  background: transparent;
 }
 
 .clients-map {
   width: 100%;
-  border-radius: inherit;
+  height: var(--clients-map-height, 480px);
+  min-height: 320px;
+  overflow: hidden;
+  border-radius: 28px;
   --clients-map-marker-pin: #4a5640;
   --clients-map-marker-badge: #fffef7;
   --clients-map-marker-stroke: #5f6f52;
@@ -54,18 +71,24 @@
   width: 100%;
   height: 100%;
   min-height: 320px;
-  border-radius: inherit;
   z-index: 0;
 }
 
-/* One element carries both classes; explicit height must not be overridden by .clients-map */
-.clients-map.clients-map-page__map .clients-map__leaflet {
-  min-height: 0;
-}
-
-.leaflet-container {
+.clients-map .leaflet-container {
   font-family: inherit;
   background: #e8e8e8;
+}
+
+@media (max-width: 640px) {
+  .clients-map-page__map-wrap,
+  .clients-map-page__map,
+  .clients-map {
+    border-radius: 22px;
+  }
+
+  .clients-map-page__map {
+    --clients-map-height: min(380px, calc(100vh - var(--header-height) - 12rem));
+  }
 }
 
 .clients-map-marker-icon {
@@ -321,4 +344,24 @@
   margin: 0.5rem 0 1.25rem;
   line-height: 1.55;
   opacity: 0.92;
+}
+
+.clients-map-inline-link {
+  margin: -0.5rem 0 0;
+  text-align: right;
+  font-size: 0.95rem;
+}
+
+.clients-map-inline-link a {
+  color: var(--color-highlight);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.clients-map-inline-link a:hover {
+  border-bottom-color: var(--color-primary-strong);
 }

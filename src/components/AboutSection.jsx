@@ -39,21 +39,10 @@ export function AboutSection() {
 
         <div className="about__grid">
           <div className="about__main">
-            <p className="about__paragraph">
-              I am currently a <strong>{about.currentRole}</strong> at{" "}
-              <span className="about__highlight">{about.currentCompany}</span>, {about.currentDetail}{" "}
-              {about.previousLine}
-            </p>
-
-            <p className="about__tech-intro">{about.techIntro}</p>
-
-            <ul className="about__tech-grid">
-              {about.technologies.flat().map((tech) => (
-                <li key={tech}>{tech}</li>
-              ))}
-            </ul>
-
-            <p className="about__paragraph about__paragraph--last">{about.personalNote}</p>
+            <p className="about__paragraph">{about.lead}</p>
+            {about.personalNote ? (
+              <p className="about__paragraph about__paragraph--last">{about.personalNote}</p>
+            ) : null}
           </div>
 
           <figure className="about__photo-wrap">

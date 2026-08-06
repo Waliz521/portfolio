@@ -39,7 +39,25 @@ function FitBounds({ positions }) {
   return null;
 }
 
-export function ClientsMap({ className = "" }) {
+function MapResize() {
+  const map = useMap();
+
+  useEffect(() => {
+    const refresh = () => map.invalidateSize();
+    refresh();
+    requestAnimationFrame(refresh);
+    const timer = window.setTimeout(refresh, 250);
+    window.addEventListener("resize", refresh);
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("resize", refresh);
+    };
+  }, [map]);
+
+  return null;
+}
+
+export function ClientsMap({ id, className = "" }) {
   const points = getFreelanceClientMapPoints();
   const positions = points.map((p) => p.position);
   const center = positions.length ? positions[0] : [20, 0];
@@ -47,7 +65,7 @@ export function ClientsMap({ className = "" }) {
   const pinIcon = useMemo(() => createClientPinIcon(), []);
 
   return (
-    <div className={`clients-map ${className}`.trim()}>
+    <div id={id} className={`clients-map ${className}`.trim()}>
       <MapContainer
         center={center}
         zoom={zoom}
@@ -60,6 +78,7 @@ export function ClientsMap({ className = "" }) {
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
         />
         {positions.length > 0 && <FitBounds positions={positions} />}
+        <MapResize />
         {points.map((point) => (
           <Marker key={point.key} position={point.position} icon={pinIcon}>
             <Popup className="clients-map-popup" maxWidth={320}>

@@ -311,9 +311,12 @@ export function Testimonials({
 
       {isMarquee && showViewAll && (
         <div className="site-wrapper">
-          <div className="testimonials__cta">
+          <div className="testimonials__cta testimonials__cta--pair">
             <Link className="btn btn--ghost" to="/projects">
               View all freelance projects
+            </Link>
+            <Link className="btn btn--primary" to="/clients">
+              Client map
             </Link>
           </div>
         </div>

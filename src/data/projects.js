@@ -5,6 +5,8 @@ export const projects = [
     title: "Hotspot & Spatial Correlation Analysis",
     description:
       "Advanced spatial analysis application identifying statistically significant hotspots and correlation patterns in geospatial data. Mapbox GL JS powers full interactive exploration: upload datasets, adjust analysis settings, and review relationships across regions with responsive maps, legible symbology, and an analyst-ready workflow.",
+    summary:
+      "Upload geospatial data and explore hotspot clusters and spatial correlations on an interactive Mapbox map.",
     image: "/images/Spatial_Correlation.png",
     tags: ["Mapbox GL JS", "Hotspot Analysis", "Spatial Correlation"],
     category: "pet-projects",
@@ -36,6 +38,8 @@ export const projects = [
     title: "Atlantic Hurricane Visualization",
     description:
       "Interactive timeline of the 2000 Atlantic hurricane season using Mapbox GL JS with animated storm tracks and intensity evolution. Scrub time, compare cyclone paths, and inspect wind, pressure, and landfall notes in a responsive layout tuned for seasonal review work.",
+    summary:
+      "Scrub through the 2000 Atlantic season — animated tracks, intensity shifts, and storm details on Mapbox GL JS.",
     image: "/images/Atlantic_Hurricanes.png",
     tags: ["Mapbox GL JS", "Animated Hurricanes", "Timeline Visualization"],
     category: "pet-projects",
@@ -63,6 +67,8 @@ export const projects = [
     title: "Van Gogh style wind speed map",
     description:
       "Artistic wind visualization inspired by van Gogh brushwork, built on ArcGIS Online with custom styling that turns breezes into flowing strokes. Explore speed and direction interactively while keeping meteorological signals readable for curious viewers and cartography-minded audiences alike everywhere today.",
+    summary:
+      "Wind speed and direction rendered as van Gogh-style brushstrokes — science meets cartography on ArcGIS Online.",
     image: "/images/Van_gogh.png",
     tags: ["ArcGIS Online", "Artistic Cartography", "Wind Data Visualization"],
     category: "pet-projects",

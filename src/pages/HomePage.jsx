@@ -10,10 +10,10 @@ export function HomePage() {
       <Hero />
       <AboutSection />
       <Projects
-        limit={2}
+        limit={3}
+        variant="home"
         showViewAll
-        eyebrow="/ Highlights"
-        heading="Featured geospatial projects"
+        eyebrow="/ projects"
       />
       <Testimonials
         eyebrow="/ Freelance Work"

@@ -1,10 +1,21 @@
 /* Footer Styles */
 
 .footer {
-  margin-top: 6rem;
-  padding: 3rem 1.5rem 2rem;
-  background: rgba(15, 30, 15, 0.9);
-  border-top: 1px solid rgba(140, 200, 140, 0.2);
+  margin-top: 4rem;
+  padding: 2.5rem 1.5rem 1.75rem;
+  background: var(--color-highlight);
+  border-top: 1px solid rgba(255, 254, 247, 0.1);
+  color: rgba(255, 254, 247, 0.88);
+}
+
+.footer h3 {
+  margin: 0 0 0.85rem;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fffef7;
 }
 
 .footer__content {
@@ -12,43 +23,62 @@
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
   max-width: 1200px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1.75rem;
 }
 
 .footer__list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  color: var(--color-muted);
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(255, 254, 247, 0.82);
+}
+
+.footer__list a {
+  color: rgba(255, 254, 247, 0.92);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer__list a:hover {
+  color: #fffef7;
 }
 
 .footer__social {
   display: flex;
-  gap: 1rem;
-  font-size: 1.5rem;
+  gap: 0.75rem;
+  font-size: 1.35rem;
 }
 
 .footer__social a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  border: 1px solid rgba(233, 241, 255, 0.12);
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--color-subtle);
-  transition: all 0.25s ease;
+  border: 1px solid rgba(255, 254, 247, 0.22);
+  background: rgba(255, 254, 247, 0.06);
+  color: rgba(255, 254, 247, 0.9);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .footer__social a:hover {
-  border-color: rgba(111, 255, 207, 0.4);
-  color: var(--color-highlight);
+  border-color: rgba(255, 254, 247, 0.45);
+  background: rgba(255, 254, 247, 0.12);
+  color: #fffef7;
 }
 
 .footer__credits {
   text-align: center;
-  color: var(--color-muted);
-  font-size: 0.85rem;
+  color: rgba(255, 254, 247, 0.55);
+  font-size: 0.82rem;
+  margin: 0;
 }

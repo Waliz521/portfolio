@@ -29,7 +29,7 @@ export function Hero() {
             <span className="hero__meta-dot" aria-hidden>
               ·
             </span>
-            <span>{personalInfo.location}</span>
+            <span className="hero__meta-location">{personalInfo.location}</span>
           </div>
         </div>
       </div>

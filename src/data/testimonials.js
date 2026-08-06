@@ -2,9 +2,9 @@
 export const upworkProfileUrl = "https://www.upwork.com/freelancers/~015f3845ea728cd7f0?mp_source=share";
 
 export const upworkStats = {
-  totalEarnings: "$4K+",
+  totalEarnings: "$6K+",
   totalJobs: "12",
-  totalHours: "399",
+  totalHours: "468",
   jobSuccess: "100%",
   badges: ["Top Rated", "100% Job Success"],
 };
@@ -415,13 +415,13 @@ export const testimonials = [
       "Desktop GIS site assessments for remote Northern Territory community infrastructure compounds: satellite imagery interpretation, compound area and inventory documentation, green amber red expansion feasibility, annotated overhead maps, and Word reports from a client template. Hourly Upwork contract; NDA-bound — no site identifiers published here.",
     rating: null,
     dateRange: "Jun 2, 2026 - Present",
-    amount: "$1,760.00",
+    amount: "$3,380.00",
     paymentType: "hourly",
     hourlyRate: "$20.00 /hr",
-    totalHours: "100 hours",
+    totalHours: "169 hours",
     testimonial: "",
     platform: "Upwork",
-    clientName: "Private client",
+    clientName: "Brad Welsh",
     clientLocation: "Australia",
     category: "freelance",
     detailedDescription:
@@ -440,7 +440,7 @@ export const testimonials = [
     solutions:
       "Followed a documented end-to-end workflow: standardized polygon legend and map exports, Excel-backed fit calculators, NR Maps cadastre checks, ABS context where appropriate, and repeatable Word assembly. Prioritized trial-site quality for full-scope approval and maintained internal tooling for review without exposing protected location data publicly.",
     results:
-      "Active hourly contract from Jun 2, 2026: $20.00/hr, 100 hours logged, $1,760.00 earned to date. Client review pending while work continues. Portfolio copy reflects only the public Upwork job overview — not NDA site lists, coordinates, or community-identifying deliverables.",
+      "Active hourly contract from Jun 2, 2026: $20.00/hr, 169 hours logged, $3,380.00 earned to date. Client review pending while work continues. Portfolio copy reflects only the public Upwork job overview — not NDA site lists, coordinates, or community-identifying deliverables.",
   },
   {
     id: "sudan-conflict-map",

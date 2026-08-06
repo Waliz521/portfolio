@@ -7,6 +7,7 @@ export function ClientsMapTeaser({ variant = "default" }) {
 
   return (
     <section
+      id="client-map"
       className={`section clients-map-teaser${isProjects ? " clients-map-teaser--projects" : ""}`}
       aria-labelledby="clients-map-teaser-heading"
     >

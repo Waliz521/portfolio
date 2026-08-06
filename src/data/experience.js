@@ -12,7 +12,7 @@ export const experienceTimeline = [
     role: "Geospatial Analyst | GIS Dev | Cartographer",
     location: "Multan, Pakistan",
     description:
-      "Freelance geospatial work for international clients: interactive maps (Mapbox GL JS, Leaflet), full-stack and Supabase-backed tooling, WordPress-embedded territory experiences, ArcGIS Pro cartography, and long-form GIS research. Public profile: Top Rated, 100% Job Success, $20/hr.",
+      "Freelance geospatial work for international clients: interactive maps (Mapbox GL JS, Leaflet), full-stack and Supabase-backed tooling, WordPress-embedded territory experiences, ArcGIS Pro cartography, and long-form GIS research. Top Rated · 100% Job Success · 12 contracts · 468 hours · $6K+ earned.",
   },
   {
     period: "June - August 2024",
