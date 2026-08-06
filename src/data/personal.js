@@ -6,7 +6,7 @@ export const personalInfo = {
   availability: "Available for remote work",
   heroIntro:
     "Geospatial analyst and WebGIS developer in Lahore. I build interactive maps and GIS tools at NESPAK by day and deliver freelance mapping, dashboard, and analysis work for clients worldwide.",
-  aboutPhoto: null,
+  aboutPhoto: "/images/about.jpg",
   about: {
     lead:
       "I'm a geospatial analyst and Web GIS developer in Lahore. I turn spatial data into interactive maps, analysis, and decision-ready deliverables — from enterprise web mapping for electric utility network planning at NESPAK to freelance desktop and web GIS for clients across the US, UK, Australia, and beyond. That work spans long-form QGIS and ArcGIS analysis, React dashboards, franchise territory maps, bathymetry cartography, and infrastructure site assessments; recent highlights include a nine-month Sudan oil-spill mapping engagement, Nigeria power and water impact dashboards, and an ongoing remote GIS contract in Australia.",
